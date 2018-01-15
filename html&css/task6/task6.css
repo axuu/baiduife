@@ -154,7 +154,7 @@ main {
 .style-6 {
     font-size: 12px;
     color: #cc8091;
-    font-family: 'Microsoft Yahei';
+    font-family: "Microsoft Yahei";
     margin: 0;
 }
 
@@ -220,6 +220,7 @@ main {
     box-sizing: border-box;
     float: left;
     padding-right: 478px;
+    overflow: hidden;
 }
 
 #bottom-right {
@@ -269,9 +270,8 @@ main {
 
 #space-block {
     width: 1px;
-    height: 30px;
+    height: 1px;
     float: right;
-    margin-bottom: 30px;
 }
 
 #left-bottom-pic {
@@ -305,4 +305,27 @@ footer span {
     float: left;
     margin: 0 12px 12px 0;
     line-height: 72px;
+}
+
+.grey-mask {
+    width: 458px;
+    height: 61px;
+    background-color: #231815;
+    opacity: 0.4;
+    margin-top: -63px;
+}
+
+.style-13 {
+    line-height: 44px;
+    color: white;
+    font-size: 26px;
+    font-family: 'Microsoft Yahei';
+    border-left: 3px solid #72b61a;
+    margin: 0 0 0 38px;
+    padding-left: 12px;
+    display: inline;
+}
+
+.style-14 {
+    display: inline;
 }
