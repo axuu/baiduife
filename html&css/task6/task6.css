@@ -126,7 +126,7 @@ main {
 .style-3 {
     font-size: 116px;
     color: #75b86b;
-    font-family: 'Microsoft Yahei';
+    font-family: 'Microsoft Yahei UI','微软雅黑';
     font-style: italic;
     margin: 0;
 }
@@ -464,26 +464,38 @@ footer span {
 }
 
 .style-19 {
-    box-sizing: border-box;
-    width: 199px;
-    float: right;
-    font-style: 12px;
+    text-indent: 3em;
+    font-size: 14px;
     color: #5a5b5b;
     font-family: "黑体";
     font-style: italic;
     padding-left: 15px;
+    line-height: 16px;
 }
 
 .style-21 {
     font-size: 72px;
     color: #d45d5c;
-    float: left;
-    line-height: 20px;
+    font-style: normal;
+    font-family: "黑体";
+    position: absolute;
+    left: -65px;
+    top: 30px;
 }
 
 .style-22 {
     font-size: 72px;
     color: #d45d5c;
+    font-family: "黑体"; 
+    position: absolute;
+    right: -20px;
+    bottom: -16px;
+    font-style: normal;        
+}
+
+#hello-world {
     float: right;
-    line-height: 20px;  
+    box-sizing: border-box;
+    width: 199px;
+    position: relative;
 }
