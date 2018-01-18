@@ -2,43 +2,277 @@ body {
     min-width: 1280px;
 }
 
+/* header */
+
 header {
     height: 56px;
     background-color: #fff;
+    position: relative;
+    padding-left: 101px;
+}
+
+#header-logo {
+    position: absolute;
+    top: 50%;
+    left: 59px;
+    margin: -15px 0 0 0;
 }
 
 #site-name {
 	width: 62px;
-	height: 21px;
 	font-family: SimHei;
 	font-size: 21px;
-	line-height: 27px;
+	line-height: 56px;
 	letter-spacing: 0px;
-	color: #393a3a;
+    color: #393a3a;
+    vertical-align: middle;
 }
 
-#header-logo {
-    margin-right: 11px;
-}
-
-#header-title {
-    height: 56px;
-    margin-left: 59px;
+#header-list {
+    position: absolute;
+    right: 52px;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
 }
 
 #header-list li{
+    box-sizing: border-box;
+    width: 90px;
     list-style: none;
     height: 56px;
+    text-align: center;
+    float: left;
+    padding: 0 15px 0 15px;
 }
 
 #header-list li a{
     text-decoration: none;
     font-family: 'MicrosoftYaHei';
 	font-size: 14px;
-	color: #787b83;
+    color: #787b83;
+    line-height: 56px;
 }
 
-#header-list li a:hover{
-	color: #e74f4d;
+#header-list li:hover a{
+    color: #e74f4d;
 }
 
+#login-link {
+    color: #e74f4d;
+}
+
+.list-bottom {
+    height: 5px;
+	width: 90px;
+	position: absolute;
+	left: 0px;
+	top: 52px;
+	border-top: 5px solid #e74f4d;
+	transition: left .2s ease-in-out;
+	-webkit-transition: left .2s ease-in-out; 
+}
+
+#header-list li:nth-child(1):hover~ .list-bottom{
+	left: 0px;	
+}
+
+#header-list li:nth-child(2):hover~ .list-bottom{
+	left: 90px;	
+}
+
+#header-list li:nth-child(3):hover~ .list-bottom{
+	left: 180px;	
+}
+
+#header-list li:nth-child(4):hover~ .list-bottom{
+	left: 270px;	
+}
+
+#header-list li:nth-child(5):hover~ .list-bottom{
+	left: 360px;	
+}
+
+#header-list li:nth-child(6):hover~ .list-bottom{
+	left: 450px;	
+}
+
+#login-logo {
+    position: relative;
+    margin-right: 5px;
+    top: 3px;
+}
+
+/* part 1 */
+#part-1 {
+    box-sizing: border-box;
+    width: 100%;
+    height: 690px;
+    background-image: url("img/bg1.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    padding-left: 117px;
+    padding-top: 230px;
+}
+
+.main-slogan {
+	font-family: "Microsoft YaHei UI";
+	font-size: 60px;
+    color: #ffffff;
+    font-weight: normal;
+    font-stretch: normal;
+	letter-spacing: 0px;    
+    margin: 0;
+}
+
+.sub-slogan {
+	font-family: "Microsoft YaHei UI";
+	font-size: 21px;
+	font-weight: normal;
+	font-stretch: normal;
+    letter-spacing: 0px;
+    line-height: 30px;
+    color: #ffffff;
+    margin: 30px 0 66px 0;
+}
+
+#try-it-button {
+    width: 331px;
+    height: 65px;
+    background-color: #e74f4d;
+    color: #fff;
+    border: none;
+	font-family: "Microsoft YaHei UI";
+	font-size: 30px;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 27px;
+    letter-spacing: 3px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#try-it-button:hover {
+    background-color: #fff;
+    color: #e74f4d;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* part 2 */
+#part-2 {
+    box-sizing: border-box;
+    width: 100%;
+    height: 250px;
+    background-color: #fff;
+    padding-top: 45px;
+}
+
+.slogan-card {
+    box-sizing: border-box;
+    width: 25%;
+    float: left;
+}
+
+.slogan-card .icon{
+    display: block;
+    margin: 0 auto 46px auto;
+}
+
+.slogan-card .slogan{
+    box-sizing: border-box;
+    width: 100%;
+	height: 32px;
+	font-family: "SimHei";
+	font-size: 14px;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 18px;
+	letter-spacing: 0px;
+    color: #767777;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 80px 0 80px;
+}
+
+.slogan-card .slogan {
+    border-right: 2px solid #aaaaaa;
+}
+
+.slogan-card:nth-of-type(4) .slogan{
+    border-right: none;
+}
+
+/* part 3 */
+#part-3 {
+    box-sizing: border-box;
+    width: 100%;
+    height: 360px;
+    background-color: #ededed;
+    padding-top: 89px;
+}
+
+#part-3 img{
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 48px;
+}
+
+#part-3 p{
+	height: 53px;
+	font-family: SimHei;
+	font-size: 53px;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 56px;
+	letter-spacing: 0px;
+    color: #a1a1a1;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* part 4 */
+#part-4 {
+    box-sizing: border-box;
+    width: 100%;
+    height: 340px;
+    background-image: url("img/bg2.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    padding-top: 53px;
+}
+
+#part-4 h3{
+    font-family: "Microsoft YaHei UI";
+    font-size: 21px;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #ffffff;
+    text-align: center;
+    margin: 0 0 10px 0;
+}
+
+.h3-bottom {
+    box-sizing: border-box;
+    height: 3px;
+    width: 31px;
+    border-top: 3px solid #fff;
+    margin: 0 auto 19px auto;
+    transition: width 0.5s ease-in-out;
+}
+
+#part-4 h3:hover~ .h3-bottom {
+    width: 231px;
+    transition: width 0.5s ease-in-out;
+}
+
+#part-4 p {
+	height: 13px;
+	font-family: "Microsoft YaHei UI";
+	font-size: 12px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+    color: #ffffff;
+    text-align: center;
+    margin: 0 0 52px 0;
+}
