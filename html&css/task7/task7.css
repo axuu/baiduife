@@ -407,7 +407,8 @@ header {
 
 /* part 6 */
 #part-6 {
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     height: 567px;
     width: 100%;
     background-color: #fff;
@@ -421,7 +422,8 @@ header {
     height: 100%;
     float: left;
     padding-top: 120px;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
 }
 
 #part-6 .common-style {
@@ -447,7 +449,8 @@ header {
 }
 
 #part-6 .right {
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     position: relative;
     width: 430px;
     height: 100%;
@@ -500,14 +503,17 @@ header {
     background-color: #fff;
     color: #be4e48;
     border: 1px solid #be4e48;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     margin: 40px auto 0 auto;
+    -webkit-transition: background-color .3s, color .3s;
     transition: background-color .3s, color .3s;
 }
 
 #part-6 .style-8:hover {
     background-color: #be4e48;
     color: #fff;
+    -webkit-transition: background-color .3s, color .3s;
     transition: background-color .3s, color .3s;
 }
 
@@ -517,11 +523,13 @@ header {
     bottom: 60px;
     left: 50%;
     padding: 0;
-    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
 }
 
 #part-6 .right .page-indicator li{
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     width: 12px;
     height: 12px;
     border-radius: 12px;
@@ -537,7 +545,8 @@ header {
 
 /* part 7 */
 #part-7 {
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     height: 521px;
     width: 100%;
     background-color: #fff;
@@ -557,7 +566,8 @@ header {
     background-color: #e74f4d;
     float: left;
     padding: 173px 128px 0 128px;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
 }
 
 #part-7 .left .left-right{
@@ -565,7 +575,8 @@ header {
     width: 50%;  
     height: 100%;
     padding: 173px 128px 0 128px;
-    box-sizing: border-box;   
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;   
 }
 
 #part-7 .left .style-1{
@@ -591,6 +602,7 @@ header {
     width: 31px;
     border-top: 3px solid;
     margin: 0 auto 25px auto;
+    -webkit-transition: width .5s;
     transition: width .5s;     
 }
 
@@ -604,6 +616,7 @@ header {
 
 #part-7 .left .style-1:hover~ .flex-bottom {
     width: 165px;
+    -webkit-transition: width .5s;
     transition: width .5s;
 }
 
@@ -614,19 +627,22 @@ header {
     height: 44px;
     border: 1px solid;
     margin: 0 auto;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
 }
 
 #part-7 .left-left .style-2 {
     color: #fff;
     border-color: #fff;
     background-color: #e74f4d;
+    -webkit-transition: color .4s, background-color .4s;
     transition: color .4s, background-color .4s;  
 }
 
 #part-7 .left-right .style-2 {
     color: #e74f4d;
     border-color: #e74f4d; 
+    -webkit-transition: color .4s, background-color .4s; 
     transition: color .4s, background-color .4s;   
 }
 
@@ -635,6 +651,7 @@ header {
     color: #e74f4d;
     border-color: #fff;
     background-color: #fff;
+    -webkit-transition: color .4s, background-color .4s;
     transition: color .4s, background-color .4s;  
 }
 
@@ -642,11 +659,13 @@ header {
     color: #fff;
     border-color: #fff;
     background-color: #e74f4d;
+    -webkit-transition: color .4s, background-color .4s;
     transition: color .4s, background-color .4s;  
 }
 
 #part-7 .right {
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     position: relative;
     width: 430px;
     height: 100%;
@@ -674,7 +693,8 @@ header {
     height: 750px;
     width: 100%;
     background-color: #fff;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     padding: 120px 140px 0 140px;
 }
 
@@ -693,12 +713,14 @@ header {
     width: 31px;
     border-top: 3px solid;
     margin: 0 auto 14px auto;
+    -webkit-transition: width .5s;
     transition: width .5s;
     color: #e74f4d;
 }
 
 #part-8 .style-1:hover~ .flex-bottom {
     width: 165px;
+    -webkit-transition: width .5s;
     transition: width .5s;
 }
 
@@ -724,7 +746,8 @@ header {
 }
 
 #part-8 .bottom-right {
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     width: 712px;
     float: left;
     padding-left: 60px;
@@ -857,7 +880,8 @@ header {
     height: 41px;
     background-color: #fff;
     border: none;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
 }
 
 #part-9 .contact-input-wrapper .contact-input::-webkit-input-placeholder {
@@ -873,7 +897,8 @@ header {
 #part-9 .contact-input-wrapper .contact-submit {
     position: relative;
     border: none;    
-    box-sizing: border-box;    
+    -webkit-box-sizing: border-box;    
+            box-sizing: border-box;    
     width: 81px;
     height: 41px;
     color: #fff;
@@ -898,7 +923,8 @@ footer {
     background-color: #2f2f38;
     padding: 0 60px;
     position: relative;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
 }
 
 footer .common-txt {
@@ -933,18 +959,21 @@ footer .style-2 {
 .vertical-middle-wrapper {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
 }
 
 .horizontal-middle-wrapper {
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
 }
 
 .center-wrapper {
     position: absolute;
     top: 50%;    
     left: 50%;
-    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
 }
