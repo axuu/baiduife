@@ -79,6 +79,7 @@ main {
   background-color: #2a2e3d;
   float: left;
   margin-left: -260px;
+  padding: 0;
 }
 
 /* right column */
