@@ -75,19 +75,26 @@ main {
 /* left column */
 .left-column {
   width: 260px;
-  height: auto;
   background-color: #2a2e3d;
   float: left;
   margin-left: -260px;
   padding: 0;
+  height: 1200px;
 }
 .left-column .user-card {
   width: 100%;
   height: 150px;
   padding: 20px 45px;
+  position: relative;
 }
 .left-column .user-card .avatar {
   width: 100%;
+  margin-bottom: 24px;
+  position: relative;
+}
+.left-column .user-card .avatar img {
+  margin-right: 18px;
+  vertical-align: middle;
 }
 .left-column .user-card .avatar span {
   font-family: SimHei;
@@ -96,11 +103,98 @@ main {
   vertical-align: middle;
   color: #f6f5f5;
 }
+.left-column .user-card .likes-and-fans span {
+  display: block;
+  font-family: SimHei;
+  font-size: 16px;
+  color: #6e8095;
+  text-align: center;
+}
+.left-column .user-card .likes-and-fans label {
+  display: block;
+  font-family: SimHei;
+  font-size: 12px;
+  color: #6e8095;
+  text-align: center;
+}
+.left-column .user-card .likes-and-fans .likes {
+  display: inline-block;
+  width: 50%;
+  border-right: 2px solid #313545;
+}
+.left-column .user-card .likes-and-fans .fans {
+  display: inline-block;
+  width: 50%;
+}
+.left-column .hierarchy-wrapper {
+  width: 100%;
+  height: auto;
+}
+.left-column .hierarchy-wrapper .active {
+  background-color: #383d4e;
+  padding-bottom: 5px;
+}
+.left-column .hierarchy-wrapper .hierarchy {
+  list-style: none;
+  margin: 0;
+  padding: 5px 0;
+}
+.left-column .hierarchy-wrapper .hierarchy > li {
+  min-height: 40px;
+  padding-left: 45px;
+}
+.left-column .hierarchy-wrapper .hierarchy > li > img {
+  vertical-align: middle;
+  margin-right: 13px;
+}
+.left-column .hierarchy-wrapper .hierarchy > li span {
+  font-family: SimHei;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #6e8095;
+  line-height: 40px;
+  vertical-align: middle;
+}
+.left-column .hierarchy-wrapper .hierarchy li:hover > span {
+  color: #fff;
+}
+.left-column .hierarchy-wrapper .second-hierarchy {
+  list-style: none;
+  padding: 0;
+  padding-left: 24px;
+}
+.left-column .hierarchy-wrapper .second-hierarchy > li {
+  min-height: 32px;
+}
+.left-column .hierarchy-wrapper .second-hierarchy > li > img {
+  vertical-align: middle;
+  margin-right: 7px;
+}
+.left-column .hierarchy-wrapper .second-hierarchy > li span {
+  line-height: 32px;
+}
+.left-column .hierarchy-wrapper .third-hierarchy {
+  list-style: none;
+  padding: 0;
+  padding-left: 24px;
+}
+.left-column .hierarchy-wrapper .third-hierarchy > li {
+  min-height: 32px;
+}
+.left-column .hierarchy-wrapper .third-hierarchy > li > img {
+  vertical-align: middle;
+  margin-right: 7px;
+}
+.left-column .hierarchy-wrapper .third-hierarchy > li span {
+  line-height: 30px;
+}
 
 /* right column */
 .right-column {
   width: 100%;
-  height: 50px;
+  height: 1200px;
   background-color: #eeeeed;
   float: left;
 }
@@ -134,6 +228,13 @@ main {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+}
+
+/* apply this to containers */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /*# sourceMappingURL=task9.css.map */
