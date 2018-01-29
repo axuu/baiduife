@@ -157,7 +157,7 @@ main {
   line-height: 40px;
   vertical-align: middle;
 }
-.left-column .hierarchy-wrapper .hierarchy li:hover > span {
+.left-column .hierarchy-wrapper .hierarchy li > span:hover {
   color: #fff;
 }
 .left-column .hierarchy-wrapper .second-hierarchy {
