@@ -33,8 +33,8 @@
                     <div class="likes">
                         <span>110</span>
                         <label for="">收藏</label>
-                    </div><!--这个注释是为了去除元素间的间隙
-                --><div class="fans">
+                    </div><!--这个注释是为了去除元素间的间隙(不能用格式化代码工具)
+                 --><div class="fans">
                         <span>313</span>
                         <label for="">粉丝</label>
                     </div>
@@ -50,11 +50,11 @@
                                 <img src="img/h-folder-b.png" alt="">
                                 <span>文件一</span>
                             </li>
-                            <li>
-                                <img src="img/h-folder-w.png" alt="">                     
+                            <li class="active">
+                                <img src="img/h-folder-w.png" alt="">
                                 <span>文件二</span>
                                 <ul class="third-hierarchy">
-                                    <li>
+                                    <li class="active">
                                         <img src="img/h-paper-w.png" alt="">
                                         <span>文档1</span>
                                     </li>
@@ -71,30 +71,134 @@
                         </ul>
                     </li>
                     <li>
-                        <img src="img/h-star.png" alt="">                        
+                        <img src="img/h-star.png" alt="">
                         <span>个人收藏</span>
                     </li>
                     <li>
-                        <img src="img/h-share.png" alt=""> 
+                        <img src="img/h-share.png" alt="">
                         <span>我的分享</span>
                     </li>
                     <li>
-                        <img src="img/h-star.png" alt=""> 
+                        <img src="img/h-star.png" alt="">
                         <span>图库</span>
                     </li>
                     <li>
-                        <img src="img/h-star.png" alt=""> 
+                        <img src="img/h-star.png" alt="">
                         <span>成长记录</span>
                     </li>
                     <li>
-                        <img src="img/h-book.png" alt=""> 
+                        <img src="img/h-book.png" alt="">
                         <span>账户信息</span>
                     </li>
                 </ul>
             </div>
         </div>
         <div class="right-column">
-            
+            <div class="breadcrumb">
+                <span>C站</span>
+                <span> / 个人报表</span>
+                <span> / 文件一</span>
+                <span class="active"> / 文档一</span>
+            </div>
+            <div class="main-content">
+                <div class="first-part basic-part basic-shadow-box clearfix">
+                    <div class="left-1 first-part-block">
+                        <span class="basic-label">查询项</span>
+                        <select class="basic-select select-s" name="" id="">
+                            <option value="">第一项</option>
+                            <option value="">第二项</option>
+                        </select>
+                    </div>
+                    <div class="left-2 first-part-block">
+                        <span class="basic-label">买方</span>
+                        <select class="basic-select select-l" name="" id="">
+                            <option value="">小A</option>
+                            <option value="">小B</option>
+                        </select>
+                        <br>
+                        <span class="basic-label">卖方</span>
+                        <select class="basic-select select-l" name="" id="">
+                            <option value="">小C</option>
+                            <option value="">小D</option>
+                        </select>
+                        <img class="exchange-button" src="img/exchange-button.png" alt="">
+                    </div>
+                    <div class="left-3 first-part-block">
+                        <span class="basic-label">日期</span>
+                        <select class="basic-select select-l" name="" id="">
+                            <option value="">2016-04-01</option>
+                            <option value="">2016-04-02</option>
+                        </select>
+                        <span class="basic-label label-margin-left">总耗时</span>
+                        <select class="basic-select select-s" name="" id="">
+                            <option value="">8 天</option>
+                            <option value="">9 天</option>
+                        </select>
+                        <br>
+                        <span class="basic-label">人数</span>
+                        <select class="basic-select select-s" name="" id="">
+                            <option value="">10 人</option>
+                            <option value="">11 人</option>
+                        </select>
+                        <span class="basic-label label-margin-left">成交项</span>
+                        <select class="basic-select select-l" name="" id="">
+                            <option value="">10 项</option>
+                            <option value="">11 项</option>
+                        </select>
+                    </div>
+                    <div class="left-4 first-part-block">
+                        <button class="basic-button vertical-middle-wrapper">搜索</button>
+                    </div>
+                </div>
+                <div class="sec-part basic-part clearfix">
+                    <div class="basic-card change-date-button basic-shadow-box">
+                        <img class="center-wrapper" src="img/d-arrow-l.png" alt="">
+                    </div>
+                    <div class="basic-card price-card basic-shadow-box active">
+                        <span class="time">10:00 am</span>
+                        <br>
+                        <span class="rmb">&yen;<span class="price">1200</span></span>
+                    </div>
+                    <div class="basic-card price-card basic-shadow-box">
+                        <span class="time">11:00 am</span>
+                        <br>
+                        <span class="rmb">&yen;<span class="price">1300</span></span>
+                    </div>
+                    <div class="basic-card price-card basic-shadow-box">
+                        <span class="time">12:00 am</span>
+                        <br>
+                        <span class="rmb">&yen;<span class="price">1200</span></span>
+                    </div>
+                    <div class="basic-card price-card basic-shadow-box">
+                        <span class="time">1:00 pm</span>
+                        <br>
+                        <span class="rmb">&yen;<span class="price">1400</span></span>
+                    </div>
+                    <div class="basic-card price-card basic-shadow-box">
+                        <span class="time">2:00 pm</span>
+                        <br>
+                        <span class="rmb">&yen;<span class="price">1500</span></span>
+                    </div>
+                    <div class="basic-card price-card basic-shadow-box">
+                        <span class="time">3:00 pm</span>
+                        <br>
+                        <span class="rmb">&yen;<span class="price">1800</span></span>
+                    </div>
+                    <div class="basic-card change-date-button basic-shadow-box">
+                        <img class="center-wrapper" src="img/d-arrow-r.png" alt="">
+                    </div>
+                    <div class="basic-card history-check basic-shadow-box">
+                        <img src="img/calendar-icon.png" alt="">
+                        <span>历史查询</span>
+                    </div>
+                </div>
+                <div class="third-part">
+                    <span>2016年4月份统计</span>
+                </div>
+                <div class="fourth-part">
+                    
+                </div>
+            </div>
         </div>
     </main>
 </body>
