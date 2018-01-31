@@ -235,6 +235,14 @@ main {
 }
 .right-column .main-content {
   padding: 20px 65px 0 65px;
+  background-color: #eeeeed;
+  /* part 1 */
+  /* part 2 */
+  /* part 3 */
+  /* part 4 */
+  /* some basic box style in part 5 and 6 */
+  /* part 5 */
+  /* part 6 */
 }
 .right-column .main-content .basic-button {
   border: none;
@@ -247,7 +255,7 @@ main {
   font-size: 12px;
 }
 .right-column .main-content .basic-shadow-box {
-  box-shadow: -2px -2px 1px #dddee0;
+  box-shadow: -1px -1px 1px #dddee0;
 }
 .right-column .main-content .basic-label {
   font-family: SimHei;
@@ -396,6 +404,7 @@ main {
 .right-column .main-content .fourth-part {
   position: relative;
   height: 71px;
+  margin-bottom: 14px;
 }
 .right-column .main-content .fourth-part .trading-volume {
   position: relative;
@@ -451,6 +460,52 @@ main {
   width: 61px;
   top: 12px;
   right: 15px;
+}
+.right-column .main-content .rounded-corner-box {
+  border-radius: 8px;
+  background-color: #fff;
+  float: left;
+  height: 100%;
+  position: relative;
+  border: solid 1px #c6c9cd;
+  padding-top: 54px;
+}
+.right-column .main-content .box-header {
+  position: absolute;
+  height: 41px;
+  width: 100%;
+  background-color: #f4f5f6;
+  top: 0;
+  border-radius: 8px 8px 0 0;
+  padding-left: 20px;
+}
+.right-column .main-content .box-header span {
+  font-family: MicrosoftYaHei;
+  font-size: 12px;
+  line-height: 41px;
+  color: #aaaaaa;
+  vertical-align: middle;
+}
+.right-column .main-content .fifth-part {
+  height: 357px;
+  margin-bottom: 9px;
+}
+.right-column .main-content .fifth-part .left {
+  width: 531px;
+  margin-right: 9px;
+}
+.right-column .main-content .fifth-part .right {
+  width: 351px;
+}
+.right-column .main-content .sixth-part {
+  height: 357px;
+}
+.right-column .main-content .sixth-part .left {
+  width: 351px;
+  margin-right: 9px;
+}
+.right-column .main-content .sixth-part .right {
+  width: 531px;
 }
 
 /* some common style */
