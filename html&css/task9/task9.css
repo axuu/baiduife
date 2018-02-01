@@ -494,6 +494,45 @@ main {
   width: 531px;
   margin-right: 9px;
 }
+.right-column .main-content .fifth-part .left .tab-list {
+  list-style: none;
+  margin: 0 20px;
+  padding: 0;
+}
+.right-column .main-content .fifth-part .left .tab-list .hidden-input {
+  display: none;
+}
+.right-column .main-content .fifth-part .left .tab-list li {
+  width: 86px;
+  height: 28px;
+  border-radius: 8px 8px 0 0;
+  background-color: #ececef;
+  float: left;
+}
+.right-column .main-content .fifth-part .left .tab-list li:not(:last-of-type) {
+  margin-right: 5px;
+}
+.right-column .main-content .fifth-part .left .tab-list li label {
+  font-family: MicrosoftYaHei;
+  font-size: 12px;
+  line-height: 28px;
+  vertical-align: middle;
+  text-align: center;
+  letter-spacing: 0px;
+  color: #535353;
+  margin-left: 25px;
+}
+.right-column .main-content .fifth-part .left .tab-content {
+  width: 491px;
+  height: 251px;
+  margin: 0 20px;
+  border: 1px solid #cbcccc;
+  border-radius: 0 8px 8px 8px;
+  clear: both;
+}
+.right-column .main-content .fifth-part .left .content-1, .right-column .main-content .fifth-part .left .content-2 {
+  display: none;
+}
 .right-column .main-content .fifth-part .right {
   width: 351px;
 }
