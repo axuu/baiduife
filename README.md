@@ -1,1 +1,1 @@
-This is a folder contains my BaiduIFE training projects.
+This is a folder contains my Baidu IFE training projects.
