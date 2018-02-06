@@ -1,0 +1,42 @@
+.container {
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.container .box{
+    box-sizing: border-box;
+    border: 1px solid #f00;
+    width: 150px;
+    order: 2;
+    padding: 10px;
+}
+
+.container .box-1 {
+    height: 120px;
+}
+
+.container .box-2 {
+    height: 100px;
+}
+
+.container .box-3 {
+    height: 40px;
+}
+
+.container .box-4 {
+    height: 200px;
+    border-color: #00f;
+}
+
+@media screen and (max-width: 640px) {
+    .container {
+        align-items: flex-start;
+    }
+    .container .box-4 {
+        order: 1;
+    }
+}
