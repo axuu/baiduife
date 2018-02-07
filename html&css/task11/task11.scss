@@ -1,0 +1,11 @@
+body {
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif; /* 移动端使用无衬线字体 */
+}
+
+a, img {
+    -webkit-touch-callout: none; /* 禁止长按链接与图片弹出菜单 */
+}
+html, body {
+    -webkit-user-select: none;   /* 禁止选中文本（如无文本选中需求，此为必选项） */
+    user-select: none;
+}
