@@ -8,4 +8,42 @@ a, img {
 html, body {
     -webkit-user-select: none;   /* 禁止选中文本（如无文本选中需求，此为必选项） */
     user-select: none;
+    font-size: 37.5px;
+    .container {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+header {
+    .container {
+        height: 1.15rem;
+        width: 100%;
+        background-color: #91d4da;
+        display: flex;
+        justify-content: center;  
+        align-items: center;
+        position: relative;
+        span {
+            color: #fff;
+        }
+        .go-back{
+            left: 0;
+            position: absolute;
+            font-size: 0.45rem;
+            display: inline-flex;
+            align-items: center;
+            span {
+                position: relative;
+                left: -0.15rem;
+            }
+            img {
+                width: 0.8rem;
+            }
+        }
+        .page-title {
+            margin: auto;
+            font-size: 0.5rem;
+        }
+    }
 }
