@@ -1,4 +1,8 @@
 @charset "UTF-8";
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
   /* 移动端使用无衬线字体 */
@@ -20,6 +24,7 @@ html .container, body .container {
   width: 100%;
 }
 
+/* header */
 header .container {
   height: 1.15rem;
   width: 100%;
@@ -49,6 +54,54 @@ header .container .go-back img {
 header .container .page-title {
   margin: auto;
   font-size: 0.5rem;
+}
+
+/* navigation bar */
+nav {
+  width: 100%;
+  height: 1.15rem;
+  background: #fff;
+}
+nav .nav-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  display: flex;
+  height: 100%;
+}
+nav .nav-list li {
+  display: inline-flex;
+  width: 20%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+nav .nav-list li span {
+  font-size: 0.45rem;
+  color: 35f5f5f;
+}
+nav .nav-list li:hover {
+  border-bottom: 0.08rem solid #8ed8d7;
+}
+
+/* main */
+main .banner {
+  height: 5.5rem;
+  width: 100%;
+}
+main .tags {
+  width: 100%;
+  height: 3rem;
+  padding: 0 0.3rem;
+}
+main .tags .tag-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  border-bottom: 0.03rem solid #dedede;
 }
 
 /*# sourceMappingURL=task11.css.map */
