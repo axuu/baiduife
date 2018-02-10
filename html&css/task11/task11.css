@@ -6,6 +6,7 @@
 body {
   font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
   /* 移动端使用无衬线字体 */
+  overflow-y: scroll;
 }
 
 a, img {
@@ -86,13 +87,13 @@ nav .nav-list li:hover {
 }
 
 /* main */
-main .banner {
-  height: 5.5rem;
+main .main-pic {
+  height: auto;
   width: 100%;
 }
 main .tags {
   width: 100%;
-  height: 3rem;
+  height: auto;
   padding: 0 0.3rem;
 }
 main .tags .tag-list {
@@ -102,6 +103,70 @@ main .tags .tag-list {
   width: 100%;
   height: 100%;
   border-bottom: 0.03rem solid #dedede;
+  padding-top: 0.3rem;
+  padding-bottom: 0.5rem;
+}
+main .tags .tag-list li {
+  width: 20%;
+  height: 100%;
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: space-around;
+}
+main .tags .tag-list li .form-circle {
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 1.2rem;
+  background-color: #00c8d7;
+  display: flex;
+  margin-bottom: 0.4rem;
+}
+main .tags .tag-list li .form-circle img {
+  margin: auto;
+  width: 60%;
+}
+main .tags .tag-list li span {
+  width: 100%;
+  text-align: center;
+  font-size: 0.35rem;
+}
+main .div-column {
+  height: auto;
+  width: 100%;
+  padding: 0.4rem 0.3rem;
+}
+main .div-column .column {
+  width: 33.3%;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-content: center;
+}
+main .div-column .column img {
+  margin-bottom: 0.15rem;
+}
+main .div-column .column span {
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+}
+main .div-column .column .heading {
+  font-size: 0.5rem;
+  margin-bottom: 0.3rem;
+}
+main .div-column .column .sec-heading {
+  font-size: 0.3rem;
+  color: #5f5f5f;
+}
+main .div-column .border-column {
+  border: 1px solid #dfdfdf;
+  border-top: none;
+  border-bottom: none;
+}
+main .wide-divider {
+  background: #f5f5f5;
+  width: 100%;
+  height: 0.35rem;
 }
 
 /*# sourceMappingURL=task11.css.map */
