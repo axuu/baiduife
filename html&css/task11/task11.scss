@@ -266,8 +266,6 @@ main {
             justify-content: space-between;
             margin-bottom: 0.3rem; 
             img {
-                width: 33%;
-                height: 100%;
                 &:not(:last-of-type){
                     margin-right: 0.04px;
                 }

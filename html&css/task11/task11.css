@@ -270,10 +270,6 @@ main .article-module-multiple-pic .article-module-image {
   justify-content: space-between;
   margin-bottom: 0.3rem;
 }
-main .article-module-multiple-pic .article-module-image img {
-  width: 33%;
-  height: 100%;
-}
 main .article-module-multiple-pic .article-module-image img:not(:last-of-type) {
   margin-right: 0.04px;
 }
