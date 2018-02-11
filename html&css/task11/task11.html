@@ -235,9 +235,10 @@
         <div class="article-module-multiple-pic">
             <h6>这是也是文章标题字号是22的文章标题</h6>
             <div class="article-module-image">
-                <img src="img/bear5.png" width="33%" height="100%" alt="">
-                <img src="img/bear5.png" width="33%" height="100%" alt="">
-                <img src="img/bear5.png" width="33%" height="100%" alt="">  
+                <div class="img-container"><img src="img/bear5.png" alt=""></div>
+                <div class="img-container"><img src="img/bear5.png" alt=""></div>
+                <div class="img-container"><img src="img/bear5.png" alt=""></div> 
+                <!-- 只有给图片外面套上div,才能完美地实现flex布局,暂时不了解原因,备注一下 -->
             </div>
             <span>文章来源 7分钟前</span>
         </div>   

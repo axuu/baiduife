@@ -265,10 +265,17 @@ main {
             flex-wrap: wrap;
             justify-content: space-between;
             margin-bottom: 0.3rem; 
-            img {
+            height: auto;
+            .img-container {
+                display: flex;
+                flex: 1;
                 &:not(:last-of-type){
-                    margin-right: 0.04px;
+                    margin-right: 0.04rem;
                 }
+            }
+            img {
+                width: 100%;
+                height: 100%;
             }         
         }
         span {
