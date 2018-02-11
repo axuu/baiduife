@@ -261,12 +261,16 @@ main {
             color: #656565;
         }
         .article-module-image {
-            width: 100%;
             display: flex;
-            flex-wrap: nowrap;
+            flex-wrap: wrap;
+            justify-content: space-between;
             margin-bottom: 0.3rem; 
             img {
-                flex: 1;
+                width: 33%;
+                height: 100%;
+                &:not(:last-of-type){
+                    margin-right: 0.04px;
+                }
             }         
         }
         span {
@@ -274,4 +278,11 @@ main {
             color: #c1c1c1;
         }   
     }
+}
+
+/* empty footer */
+footer {
+    background: #f5f5f5;
+    width: 100%;
+    height: 2rem;
 }
