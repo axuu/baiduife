@@ -13,7 +13,7 @@ a, img {
 html, body {
     -webkit-user-select: none;   /* 禁止选中文本（如无文本选中需求，此为必选项） */
     user-select: none;
-    font-size: 37.5px;
+    font-size: 37.5px; /* 用来统一全局长度 */
     .container {
         height: 100%;
         width: 100%;
@@ -165,5 +165,113 @@ main {
         background: #f5f5f5;
         width: 100%;
         height: 0.35rem;
+    }
+    .module {
+        padding: 0.4rem 0.3rem;
+        .module-header {
+            border-bottom: 1px solid #dfdfdf; 
+            display: flex;
+            align-items: flex-start;
+            span {
+                font-size: 0.5rem;
+                color: #666666;
+                margin-bottom: 0.3rem;
+            }
+        }
+        .module-row {
+            margin-top: 0.4rem;
+            display: flex;
+            flex-wrap: nowrap;
+            .left-img {
+                border: 1px solid #fbb22f;
+                flex: 1;
+            }
+            .right-txt {
+                display: flex;
+                flex-wrap: wrap;
+                flex: 3;               
+                .first-column {
+                    margin-left: 0.3rem;
+                    height: 100%;
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                }
+                .sec-column {
+                    margin-left: 0.3rem;
+                    height: 100%;
+                    flex: 1;     
+                    display: flex;
+                    flex-direction: column;
+                }
+                .single-txt {
+                    background-color: #f8f8f8;
+                    flex: 1;   
+                    display: flex;          
+                    &:nth-child(1) {
+                        margin-bottom: 0.3rem;
+                    }
+                    span {
+                        margin: auto;
+                        border-radius: 0.05rem;
+                        font-size: 0.3rem;
+                        color: #525252;
+                    }
+                }
+            }
+        }
+    }
+    .article-module {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0.25rem 0.3rem;
+        background-color: #fff;
+        border-bottom: 2px solid #f2f2f2;
+        .article-module-image {
+            flex: 11;
+            margin-right: 0.3rem;
+        }
+        .article-module-brief {
+            flex: 25;  
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            h6 {
+                margin: 0;
+                padding: 0;
+                font-size: 0.45rem;
+                color: #656565;
+            }
+            span {
+                font-size: 0.25rem;
+                color: #c1c1c1;
+            }          
+        }
+    }
+    .article-module-multiple-pic {
+        padding: 0.25rem 0.3rem;
+        display: flex;     
+        flex-wrap: wrap;            
+        flex-direction: column;
+        justify-content: space-between;
+        h6 {
+            margin: 0 0 0.3rem 0;
+            padding: 0;
+            font-size: 0.45rem;
+            color: #656565;
+        }
+        .article-module-image {
+            width: 100%;
+            display: flex;
+            flex-wrap: nowrap;
+            margin-bottom: 0.3rem; 
+            img {
+                flex: 1;
+            }         
+        }
+        span {
+            font-size: 0.25rem;
+            color: #c1c1c1;
+        }   
     }
 }
