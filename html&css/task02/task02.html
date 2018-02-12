@@ -5,14 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Task 1</title>
+    <title>Task 02</title>
+
+    <link rel="stylesheet" href="../resources/normalize.css">
+    <link rel="stylesheet" href="task02.css">
 </head>
 
 <body>
     <header>
-        <h1>网站一级标题</h1>
-        <nav>
-            <ul>
+        <nav id="navi">
+            <h1>京师学人</h1>
+            <ul id="navi-list">
                 <li>
                     <a href="">导航链接一</a>
                 </li>
@@ -29,7 +32,7 @@
         </nav>
     </header>
     <main>
-        <article>
+        <article class="article-card">
             <h1>一个快递员的城市梦</h1>
             <h2>城市已离不开我们</h2>
             <address>界面新闻</address>
@@ -48,7 +51,7 @@
                 <a href="http://ife.baidu.com" target="_blank">这里是一个链接链接到http://ife.baidu.com</a>四年后，厂里有个员工突然横死，“人被刀捅了，肠子都出来了，躺在厂门口扭动，” 王中原说，春节回乡后，母亲便再也不愿意让他回这家工厂上班了。
             </p>
         </article>
-        <article>
+        <article class="article-card">
             <h1>并不是想赚一笔钱</h1>
             <h2>而是渴望在这里扎根立足</h2>
             <address>界面新闻</address>
@@ -67,22 +70,22 @@
                 <li>列表项目三</li>
             </ul>
         </article>
-        <section>
+        <section class="article-card">
             <h1>图片</h1>
             <figure>
                 <figcaption>好看的图片</figcaption>
-                <img src="../resources/3.jpg" alt="" width="300px">
+                <img src="../resources/3.jpg" alt="" width="100%">
             </figure>
             <figure>
                 <figcaption>好看的图片</figcaption>
-                <img src="../resources/3.jpg" alt="" width="300px">
+                <img src="../resources/3.jpg" alt="" width="100%">
             </figure>
             <figure>
                 <figcaption>好看的图片</figcaption>
-                <img src="../resources/3.jpg" alt="" width="300px">
+                <img src="../resources/3.jpg" alt="" width="100%">
             </figure>
         </section>
-        <section>
+        <section class="article-card">
             <h1>最后一篇文章一级标题</h1>
             <h2>文章二级标题</h2>
             <address>文章作者</address>
@@ -92,9 +95,7 @@
                 <li>排名2</li>
                 <li>排名3</li>
             </ol>
-        </section>
-        <section>
-            <table border="1">
+            <table id="tb" border="1">
                 <tr>
                     <td>表头</td>
                     <td>表头</td>
@@ -134,55 +135,99 @@
                 </tr>
             </table>
         </section>
-        <aside>
-            <h1>这里以后是一个侧栏，这是侧栏的标题</h1>
-            <h2>侧栏注册窗口标题</h2>
-            <p>
-                <span>请输入邮箱地址：</span>
-                <input placeholder="这是一个文本输入框" type="text">
-            </p>
-            <p>
-                <span>邮箱地址请按要求格式输入</span>
-            </p>
-            <p>
-                <span>请输入密码：</span>
-                <input placeholder="这是一个文本输入框" type="text">
-                <span>请重复输入密码：</span>
-                <input placeholder="这是一个文本输入框" type="text">
-            </p>
-            <p>
+        <aside class="article-card">
+            <blockquote style="font-weight: bold">这里以后是一个侧栏，这是侧栏的标题</blockquote>
+            <form action="">
+                <table id="info-tb">
+                    <tr>
+                        <td>
+                            <span>请输入邮箱地址：</span>
+                        </td>
+                        <td>
+                            <input placeholder="这是一个文本输入框" type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <span class="prompt">邮箱地址请按要求格式输入</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>请输入密码：</span>
+                        </td>
+                        <td>
+                            <input type="password" value="123456789">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>请重复输入密码：</span>
+                        </td>
+                        <td>
+                            <input type="password" value="123456789">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <span class="prompt">密码请为6-16位英文数字</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>性别：</span>
+                        </td>
+                        <td>
+                            <input type="radio" name="sex" value="male" checked>
+                            <span>男</span>
+                            <input type="radio" name="sex" value="female">
+                            <span>女</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>城市：</span>
+                        </td>
+                        <td>
+                            <select>
+                                <option value="bj" selected>北京</option>
+                                <option value="sh">上海</option>
+                                <option value="gz">广州</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>爱好：</span>
+                        </td>
+                        <td>
+                            <input type="checkbox" name="hobby" value="sport">
+                            <span>运动</span>
+                            <input type="checkbox" name="hobby" value="art">
+                            <span>艺术</span>
+                            <input type="checkbox" name="hobby" value="science">
+                            <span>科学</span>
+                        </td>
+                    </tr>
 
-                <span>密码请为6-16位英文数字</span>
-            </p>
-            <p>
-                <form action="">
-                    <span>性别：</span>
-                    <input type="radio" name="sex" value="male" checked>
-                    <span>男</span>
-                    <input type="radio" name="sex" value="female">
-                    <span>女</span>
-                    <span>城市：</span>
-                    <select>
-                        <option value="bj">北京</option>
-                        <option value="sh">上海</option>
-                        <option value="gz">广州</option>
-                    </select>
-                    <span>爱好：</span>
-                    <input type="checkbox" name="hobby" value="sport">
-                    <span>运动</span>
-                    <input type="checkbox" name="hobby" value="art">
-                    <span>艺术</span>
-                    <input type="checkbox" name="hobby" value="science">
-                    <span>科学</span>
-                    <span>个人描述：</span>
-                    <textarea placeholder="这是一个多行输入框，输入您的个人描述" style="overflow: hidden" name="" id="" cols="30" rows="2"></textarea>
-                    <button type="sumit">确认提交</button>
-                </form>
-            </p>
-            <p>确认提交&copy;</p>
-
+                    <tr>
+                        <td style="vertical-align: top">
+                            <span>个人描述：</span>
+                        </td>
+                        <td>
+                            <textarea style="width: 100%" placeholder="这是一个多行输入框，输入您的个人描述" style="overflow: hidden" name="" id="" cols="30" rows="6"></textarea>
+                        </td>
+                    </tr>
+                </table>
+                <button id="submit-btn" type="sumit">确认提交</button>
+            </form>
         </aside>
     </main>
+    <footer>
+        <span>版权所有&copy;</span>
+    </footer>
 </body>
 
 </html>

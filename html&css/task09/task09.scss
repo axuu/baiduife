@@ -1,5 +1,6 @@
 * {
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
 }
 
 /* header */
@@ -255,7 +256,8 @@ main {
             font-size: 12px;
         }
         .basic-shadow-box {
-            box-shadow: -1px -1px 1px #dddee0;
+            -webkit-box-shadow: -1px -1px 1px #dddee0;
+                    box-shadow: -1px -1px 1px #dddee0;
         }
         .basic-label {
             font-family: SimHei;
@@ -270,7 +272,6 @@ main {
             margin-left: 15px;
         }
         .basic-select {         
-            appearance:none;
             -moz-appearance:none;
             -webkit-appearance:none;
             border: solid 1px #ababab;
@@ -680,7 +681,6 @@ main {
                                 border-radius: 0;
                             
                                 /*很关键：将默认的select选择框样式清除*/
-                                appearance:none;
                                 -moz-appearance:none;
                                 -webkit-appearance:none;
                             
@@ -918,7 +918,13 @@ main {
 
 /* apply this to containers */
 .flex-center {
+    display:-webkit-box;
+    display:-ms-flexbox;
     display:flex;
-    align-items:center;
-    justify-content:center;  
+    -webkit-box-align:center;
+        -ms-flex-align:center;
+            align-items:center;
+    -webkit-box-pack:center;
+        -ms-flex-pack:center;
+            justify-content:center;  
 }

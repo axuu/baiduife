@@ -45,7 +45,8 @@ main .article-card:last-child {
 .article-card {
     background-color: white;
     margin: 0 0 20px 0;
-    box-shadow: 2px 2px 1px #8b8b8b;
+    -webkit-box-shadow: 2px 2px 1px #8b8b8b;
+            box-shadow: 2px 2px 1px #8b8b8b;
     padding: 20px;
 }
 
@@ -75,7 +76,8 @@ article.article-card p {
 }
 
 .article-card figure {
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     width: 120px;
     height: 120px;
     border: 1px solid #d8d8d8;
