@@ -1,0 +1,978 @@
+body {
+    min-width: 1280px;
+}
+
+/* header */
+
+header {
+    height: 56px;
+    background-color: #fff;
+    position: relative;
+    padding-left: 101px;
+}
+
+#header-logo {
+    position: absolute;
+    top: 50%;
+    left: 59px;
+    margin: -15px 0 0 0;
+}
+
+#site-name {
+	width: 62px;
+	font-family: SimHei;
+	font-size: 21px;
+	line-height: 56px;
+	letter-spacing: 0px;
+    color: #393a3a;
+    vertical-align: middle;
+}
+
+#header-list {
+    position: absolute;
+    right: 52px;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+#header-list li{
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    width: 90px;
+    list-style: none;
+    height: 56px;
+    text-align: center;
+    float: left;
+    padding: 0 15px 0 15px;
+}
+
+#header-list li a{
+    text-decoration: none;
+    font-family: 'MicrosoftYaHei';
+	font-size: 14px;
+    color: #787b83;
+    line-height: 56px;
+}
+
+#header-list li:hover a{
+    color: #e74f4d;
+}
+
+#login-link {
+    color: #e74f4d;
+}
+
+.list-bottom {
+    height: 5px;
+	width: 90px;
+	position: absolute;
+	left: 0px;
+	top: 52px;
+	border-top: 5px solid #e74f4d;
+	transition: left .2s ease-in-out;
+	-webkit-transition: left .2s ease-in-out; 
+}
+
+#header-list li:nth-child(1):hover~ .list-bottom{
+	left: 0px;	
+}
+
+#header-list li:nth-child(2):hover~ .list-bottom{
+	left: 90px;	
+}
+
+#header-list li:nth-child(3):hover~ .list-bottom{
+	left: 180px;	
+}
+
+#header-list li:nth-child(4):hover~ .list-bottom{
+	left: 270px;	
+}
+
+#header-list li:nth-child(5):hover~ .list-bottom{
+	left: 360px;	
+}
+
+#header-list li:nth-child(6):hover~ .list-bottom{
+	left: 450px;	
+}
+
+#login-logo {
+    position: relative;
+    margin-right: 5px;
+    top: 3px;
+}
+
+/* part 1 */
+#part-1 {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    width: 100%;
+    height: 690px;
+    background-image: url("img/bg1.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    padding-left: 117px;
+    padding-top: 230px;
+}
+
+.main-slogan {
+	font-family: "Microsoft YaHei UI";
+	font-size: 60px;
+    color: #ffffff;
+    font-weight: normal;
+    font-stretch: normal;
+	letter-spacing: 0px;    
+    margin: 0;
+}
+
+.sub-slogan {
+	font-family: "Microsoft YaHei UI";
+	font-size: 21px;
+	font-weight: normal;
+	font-stretch: normal;
+    letter-spacing: 0px;
+    line-height: 30px;
+    color: #ffffff;
+    margin: 30px 0 66px 0;
+}
+
+#try-it-button {
+    width: 331px;
+    height: 65px;
+    background-color: #e74f4d;
+    color: #fff;
+    border: none;
+	font-family: "Microsoft YaHei UI";
+	font-size: 30px;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 27px;
+    letter-spacing: 3px;
+    -webkit-transition: background-color 0.3s, color 0.3s;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#try-it-button:hover {
+    background-color: #fff;
+    color: #e74f4d;
+    -webkit-transition: background-color 0.3s, color 0.3s;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* part 2 */
+#part-2 {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    width: 100%;
+    height: 250px;
+    background-color: #fff;
+    padding-top: 45px;
+}
+
+.slogan-card {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    width: 25%;
+    float: left;
+}
+
+.slogan-card .icon{
+    display: block;
+    margin: 0 auto 46px auto;
+}
+
+.slogan-card .slogan{
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    width: 100%;
+	height: 32px;
+	font-family: "SimHei";
+	font-size: 14px;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 18px;
+	letter-spacing: 0px;
+    color: #767777;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 80px 0 80px;
+}
+
+.slogan-card .slogan {
+    border-right: 2px solid #aaaaaa;
+}
+
+.slogan-card:nth-of-type(4) .slogan{
+    border-right: none;
+}
+
+/* part 3 */
+#part-3 {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    width: 100%;
+    height: 360px;
+    background-color: #ededed;
+    padding-top: 89px;
+}
+
+#part-3 img{
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 48px;
+}
+
+#part-3 p{
+	height: 53px;
+	font-family: SimHei;
+	font-size: 53px;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 56px;
+	letter-spacing: 0px;
+    color: #a1a1a1;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* part 4 */
+#part-4 {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    width: 100%;
+    height: 340px;
+    background-image: url("img/bg2.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    padding-top: 53px;
+    position: relative;
+}
+
+#part-4 h3{
+    font-family: "Microsoft YaHei UI";
+    width: 231px;    
+    font-size: 21px;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #ffffff;
+    text-align: center;
+    margin: 0 auto 10px auto;
+}
+
+.h3-bottom {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    height: 3px;
+    width: 31px;
+    border-top: 3px solid #fff;
+    margin: 0 auto 19px auto;
+    -webkit-transition: width 0.5s ease-in-out;
+    transition: width 0.5s ease-in-out;
+}
+
+#part-4 h3:hover~ .h3-bottom {
+    width: 231px;
+    -webkit-transition: width 0.5s ease-in-out;
+    transition: width 0.5s ease-in-out;
+}
+
+#part-4 p {
+	height: 13px;
+	font-family: "Microsoft YaHei UI";
+	font-size: 12px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+    color: #ffffff;
+    text-align: center;
+    margin: 0 0 52px 0;
+}
+
+#search-form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+}
+
+.search-select {
+    border: solid 1px #fff;
+    border-radius: 0;
+    background-color: #fff;
+    color: #a8aaaa;
+    font-size: 12px;
+    width: 236px;
+    height: 36px;
+    margin-right: 30px;
+
+    /*很关键：将默认的select选择框样式清除*/
+    -moz-appearance:none;
+    -webkit-appearance:none;
+
+    /*在选择框的最右侧中间显示小箭头图片*/
+    background: url("img/arrow.png") no-repeat scroll right center;
+
+    /*为下拉小箭头留出一点位置，避免被文字覆盖*/
+    padding-left: 12px;
+}
+
+.search-select:focus {
+    border: solid 1px #be4e48;
+}
+
+/* .search-select option {
+    appearance:none;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    background-color: #fff;
+    color: #a8aaaa;
+    font-size: 30px;
+    width: 236px;
+    height: 36px;
+} */
+
+#search-submit {
+    width: 236px;
+    height: 36px;
+    border: none;
+	font-family: Microsoft YaHei UI;
+	font-size: 14px;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 26px;
+	letter-spacing: 0px;
+    color: #ffffff;
+    background-color: #be4e48;
+}
+
+/* part 5 */
+#part-5 {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    width: 100%;
+    height: 605px;
+    background-color: #f7f7f7;
+    padding: 100px 140px 0 140px;
+}
+
+#part-5 .block {  
+    display: inline-block;    
+    width: 24.5%;
+}
+
+#part-5 .white-bg {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    border: 1px solid #cecfcf;
+    width: 219px;
+    height: 337px; 
+    padding: 12px 8px;
+    margin: 0 auto;
+}
+
+#part-5 .style-1 {
+    text-align: center;
+    font-size: 18px;
+    color: #323333;
+    font-family: "Microsoft Yahei UI";
+    margin: 11px 0;
+}
+
+#part-5 .style-2 {
+    color: #818181;
+    text-align: center;
+    font-size: 14px;
+    font-family: "Microsoft Yahei UI";
+    margin: 8px 0;
+}
+
+#part-5 .style-3 {
+    color: #323333;
+    font-size: 24px;
+    font-family: "Microsoft Yahei UI";
+    text-align: justify;
+    text-justify:distribute-all-lines;/*ie6-8*/
+    text-align-last:justify;/* ie9*/
+    -moz-text-align-last:justify;/*ff*/
+    -webkit-text-align-last:justify;/*chrome 20+*/
+    margin: 0;
+    padding: 0 30px;
+}
+
+/* part 6 */
+#part-6 {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    height: 567px;
+    width: 100%;
+    background-color: #fff;
+    padding-right: 430px; 
+}
+
+#part-6 .left {
+    background: url("img/bg3.jpg") no-repeat;
+    background-size: 100% 100%;
+    width: 100%;
+    height: 100%;
+    float: left;
+    padding-top: 120px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+#part-6 .common-style {
+    font-family: "Microsoft Yahei UI";
+    font-weight: normal;
+	font-stretch: normal;
+    color: #ffffff;
+    text-align: center;
+    margin: 0;
+}
+
+#part-6 .style-1 {
+    font-size: 49px;
+}
+
+#part-6 .style-2 {
+    font-size: 157px;  
+}
+
+#part-6 .style-3 {
+    font-size: 21px;
+    line-height: 35px;
+}
+
+#part-6 .right {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    position: relative;
+    width: 430px;
+    height: 100%;
+    margin-left: -430px;
+    float: left;  
+    right: -430px; 
+    padding: 70px; 
+}
+
+#part-6 .right .vertical-middle-wrapper {
+    width: 290px;
+}
+
+#part-6 .right .triangle {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 16px 27px 16px 0;
+    border-color: transparent #ffffff transparent transparent;
+    left: -26px;
+}
+
+#part-6 .style-4 {
+    font-size: 18px;
+    color: #323333;
+    text-align: center;
+}
+
+#part-6 .style-5 {
+    color: #7f7f80;
+}
+
+#part-6 .style-6 {
+    color:#e74f4d
+}
+
+#part-6 .style-7 {
+    font-size: 14px;
+    color: #818181;
+    text-align: left;
+    line-height: 32px;
+}
+
+#part-6 .style-8 {
+    font-size: 14px;
+    display: block;
+    width: 107px;
+    height: 35px;
+    background-color: #fff;
+    color: #be4e48;
+    border: 1px solid #be4e48;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    margin: 40px auto 0 auto;
+    -webkit-transition: background-color .3s, color .3s;
+    transition: background-color .3s, color .3s;
+}
+
+#part-6 .style-8:hover {
+    background-color: #be4e48;
+    color: #fff;
+    -webkit-transition: background-color .3s, color .3s;
+    transition: background-color .3s, color .3s;
+}
+
+#part-6 .right .page-indicator {
+    position: absolute;
+    margin: 0 auto;
+    bottom: 60px;
+    left: 50%;
+    padding: 0;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+}
+
+#part-6 .right .page-indicator li{
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    width: 12px;
+    height: 12px;
+    border-radius: 12px;
+    border: 1px solid #919292;
+    list-style: none;
+    float: left;
+    margin: 0 7px;
+}
+
+#part-6 .right .page-indicator li.active{
+    background-color: #919292;
+}
+
+/* part 7 */
+#part-7 {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    height: 521px;
+    width: 100%;
+    background-color: #fff;
+    padding-right: 430px;
+    position: relative;
+}
+
+#part-7 .left {
+    width: 100%;
+    height: 100%;
+    float: left; 
+}
+
+#part-7 .left .left-left{
+    width: 50%;
+    height: 100%;
+    background-color: #e74f4d;
+    float: left;
+    padding: 173px 128px 0 128px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+#part-7 .left .left-right{
+    float: left;
+    width: 50%;  
+    height: 100%;
+    padding: 173px 128px 0 128px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;   
+}
+
+#part-7 .left .style-1{
+	font-family: "SimHei";
+	font-size: 21px;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 30px;
+    letter-spacing: 0px;
+    text-align: center;
+    margin: 0 0 20px 0;
+}
+
+#part-7 .left-left .style-1{
+    color: #fff;
+}
+
+#part-7 .left-right .style-1{
+    color: #323333;
+}
+
+#part-7 .left .flex-bottom {
+    width: 31px;
+    border-top: 3px solid;
+    margin: 0 auto 25px auto;
+    -webkit-transition: width .5s;
+    transition: width .5s;     
+}
+
+#part-7 .left-left .flex-bottom {
+    color: #fff;    
+}
+
+#part-7 .left-right .flex-bottom {
+    color: #323333;   
+}
+
+#part-7 .left .style-1:hover~ .flex-bottom {
+    width: 165px;
+    -webkit-transition: width .5s;
+    transition: width .5s;
+}
+
+#part-7 .left .style-2 {
+    font-size: 18px;
+    display: block;
+    width: 170px;
+    height: 44px;
+    border: 1px solid;
+    margin: 0 auto;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+#part-7 .left-left .style-2 {
+    color: #fff;
+    border-color: #fff;
+    background-color: #e74f4d;
+    -webkit-transition: color .4s, background-color .4s;
+    transition: color .4s, background-color .4s;  
+}
+
+#part-7 .left-right .style-2 {
+    color: #e74f4d;
+    border-color: #e74f4d; 
+    -webkit-transition: color .4s, background-color .4s; 
+    transition: color .4s, background-color .4s;   
+}
+
+#part-7 .left-left .style-2:hover
+{
+    color: #e74f4d;
+    border-color: #fff;
+    background-color: #fff;
+    -webkit-transition: color .4s, background-color .4s;
+    transition: color .4s, background-color .4s;  
+}
+
+#part-7 .left-right .style-2:hover{
+    color: #fff;
+    border-color: #fff;
+    background-color: #e74f4d;
+    -webkit-transition: color .4s, background-color .4s;
+    transition: color .4s, background-color .4s;  
+}
+
+#part-7 .right {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    position: relative;
+    width: 430px;
+    height: 100%;
+    margin-left: -430px;
+    float: left;  
+    right: -430px; 
+    background-image: url("img/bg4.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+#part-7 .right .triangle {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 16px 0 16px 27px;
+    border-color: transparent transparent transparent #ffffff;
+    left: 0px;
+    z-index: 1;
+}
+
+/* part 8 */
+#part-8 {
+    height: 750px;
+    width: 100%;
+    background-color: #fff;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 120px 140px 0 140px;
+}
+
+#part-8 .style-1 {
+	font-family: SimHei;
+	font-size: 21px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+    color: #323333;
+    text-align: center;
+    margin: 0 0 11px 0;
+}
+
+#part-8 .flex-bottom {
+    width: 31px;
+    border-top: 3px solid;
+    margin: 0 auto 14px auto;
+    -webkit-transition: width .5s;
+    transition: width .5s;
+    color: #e74f4d;
+}
+
+#part-8 .style-1:hover~ .flex-bottom {
+    width: 165px;
+    -webkit-transition: width .5s;
+    transition: width .5s;
+}
+
+#part-8 .style-2 {
+	font-family: Microsoft Yahei UI;
+	font-size: 12px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+    color: #aaaaaa;
+    line-height: 18px;
+    margin: 0 0 106px 0;
+    text-align: center;
+}
+
+#part-8 .bottom {
+    width: 100%; 
+}
+
+#part-8 .bottom-left {
+    width: 288px;
+    float: left;   
+}
+
+#part-8 .bottom-right {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    width: 712px;
+    float: left;
+    padding-left: 60px;
+}
+
+#part-8 .style-3 {
+	font-family: SimHei;
+	font-size: 14px;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 27px;
+	letter-spacing: 0px;
+    color: #231815;
+    clear: both;
+}
+
+#part-8 .style-4 {
+    font-family: SimSun;
+	font-size: 12px;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 21px;
+	letter-spacing: 0px;
+	color: #231815;
+}
+
+#part-8 .style-5 {
+	font-family: SimSun;
+	font-size: 12px;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 19px;
+	letter-spacing: 0px;
+    color: #231815;
+    float: right;
+    text-decoration: none;
+}
+
+#part-8 .style-6 {
+    width: 311px;
+    height: 41px;
+    background-color: #ededee;
+    border: none;
+    margin-bottom: 13px;
+}
+
+#part-8 .style-6:nth-of-type(2n-1){
+    margin-right: 17px;
+}
+
+#part-8 .style-6::-webkit-input-placeholder {
+	font-family: SimSun;
+	font-size: 12px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+    color: #231815;
+    padding-left: 19px;
+}
+
+#part-8 .style-7 {
+    background-color: #ededee;
+    border: none;
+    width: 644px;
+    height: 121px;
+    margin-bottom: 13px;
+}
+
+#part-8 .style-7::-webkit-input-placeholder {
+	font-family: SimSun;
+	font-size: 12px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+    color: #231815;
+    padding-left: 19px;
+    padding-top: 17px;
+}
+
+#part-8 .style-8 {
+    background-color: #ededee;
+    border: none;
+    width: 648px;
+    height: 41px;
+    font-family: "SimHei";
+	font-size: 14px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #323333;
+}
+
+/* part 9 */
+#part-9 {
+    position: relative;
+    height: 360px;
+    width: 100%;
+    background-color: #32363e;
+}
+
+#part-9 .style-1 {
+    font-family: SimHei;
+	font-size: 21px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+    color: #ffffff;
+    text-align: center;
+    margin: 0 0 11px 0;
+}
+
+#part-9 .style-2 {
+    font-family: SimSun;
+	font-size: 12px;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 18px;
+	letter-spacing: 0px;
+    text-align: center;
+    color: #ffffff;
+    margin: 0 0 30px 0;    
+}
+
+#part-9 .contact-input-wrapper {
+    margin: 0 0 37px 0;    
+}
+
+#part-9 .contact-input-wrapper .contact-input {
+    width: 431px;
+    height: 41px;
+    background-color: #fff;
+    border: none;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+#part-9 .contact-input-wrapper .contact-input::-webkit-input-placeholder {
+	font-family: MicrosoftYaHei;
+	font-size: 14px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #aaaaaa;
+    padding-left: 10px;
+}
+
+#part-9 .contact-input-wrapper .contact-submit {
+    position: relative;
+    border: none;    
+    -webkit-box-sizing: border-box;    
+            box-sizing: border-box;    
+    width: 81px;
+    height: 41px;
+    color: #fff;
+    background-color: #6f7278;
+    left: -5px;
+    top: -1px;
+}
+
+#part-9 .icon-wrapper {
+    width: 250px;
+    margin: 0 auto;
+}
+
+#part-9 .icon-wrapper>a>img {
+    margin: 0 14px;
+}
+
+/* footer */
+footer {
+    width: 100%;
+    height: 58px;
+    background-color: #2f2f38;
+    padding: 0 60px;
+    position: relative;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+footer .common-txt {
+	font-family: "SimSun";
+	font-size: 12px;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 58px;
+	letter-spacing: 0px;
+    color: #ffffff;
+    vertical-align: middle;
+}
+
+footer .style-1 {
+    float: left;
+}
+
+footer .style-2 {
+    text-decoration: none;
+    float: right;
+}
+
+/* some common style */
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
+}
+
+.vertical-middle-wrapper {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+}
+
+.horizontal-middle-wrapper {
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+}
+
+.center-wrapper {
+    position: absolute;
+    top: 50%;    
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+}
