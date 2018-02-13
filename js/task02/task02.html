@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IFE JavaScript Task 02</title>
+</head>
+
+<body>
+    <h3>污染城市列表</h3>
+    <ul id="aqi-list">
+        <!--   
+        <li>第一名：福州（样例），10</li>
+        <li>第二名：福州（样例），10</li> 
+        -->
+    </ul>
+
+    <ul id="another-aqi-list">
+        <!--   
+        <li>第一名：福州（样例），10</li>
+        <li>第二名：福州（样例），10</li> 
+        -->
+    </ul>
+
+    <script type="text/javascript">
+
+        var aqiData = [
+            ["北京", 90],
+            ["上海", 50],
+            ["福州", 10],
+            ["广州", 50],
+            ["成都", 90],
+            ["西安", 100]
+        ];
+
+        (function () {
+
+            /*
+            在注释下方编写代码
+            遍历读取aqiData中各个城市的数据
+            将空气质量指数大于60的城市显示到aqi-list的列表中
+            */
+
+            function compare(a, b) {//排序方法
+                return b[1] - a[1];
+            }
+
+            function filter(list, array) {
+                let result = [];
+                for (let i = 0; i < array.length; i++) {//选出API在60以上的元素
+                    if (array[i][1] > 60) {
+                        result.push(array[i]);
+                    }
+                }
+                result = result.sort(compare);//对数组进行降序排列
+                for (let j = 0; j < result.length; j++) {//把结果中的每一个元素包装成 li, 并添加到list中
+                    let li = document.createElement("li");
+                    li.innerHTML = "第" + (j + 1) + "名：" + result[j][0] + "，" + result[j][1];
+                    list.appendChild(li);
+                }
+            }
+
+            let aqiList = document.getElementById('aqi-list');
+            filter(aqiList, aqiData);
+
+            // 使用了filter和forEach的第二种方法
+            let anotherAqiList = document.getElementById('another-aqi-list');
+
+            function ifBiggerThan60(element, index, array) {//使用 filter 过滤掉小于 60 的元素的方法
+                return (element[1] >= 60);
+            }
+
+            function addHTML(element, index, array) {//把结果中的每一个元素包装成li, 并添加到list中的方法
+                let li = document.createElement("li");
+                li.innerHTML = "第" + (index + 1) + "名：" + element[0] + "，" + element[1];
+                anotherAqiList.appendChild(li);
+            }
+
+            aqiData.filter(ifBiggerThan60).sort(compare).forEach(addHTML);//先过滤
+
+        })();
+
+    </script>
+</body>
+
+</html>
