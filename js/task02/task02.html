@@ -57,7 +57,8 @@
                 result = result.sort(compare);//对数组进行降序排列
                 for (let j = 0; j < result.length; j++) {//把结果中的每一个元素包装成 li, 并添加到list中
                     let li = document.createElement("li");
-                    li.innerHTML = "第" + (j + 1) + "名：" + result[j][0] + "，" + result[j][1];
+                    const cnNums = ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十'];
+                    li.innerHTML = "第" + cnNums[j] + "名：" + result[j][0] + "，" + result[j][1];
                     list.appendChild(li);
                 }
             }
@@ -74,7 +75,8 @@
 
             function addHTML(element, index, array) {//把结果中的每一个元素包装成li, 并添加到list中的方法
                 let li = document.createElement("li");
-                li.innerHTML = "第" + (index + 1) + "名：" + element[0] + "，" + element[1];
+                const cnNums = ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十'];                
+                li.innerHTML = "第" + cnNums[index] + "名：" + element[0] + "，" + element[1];
                 anotherAqiList.appendChild(li);
             }
 
