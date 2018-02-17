@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IFE JavaScript Task 05</title>
+</head>
+<body>
+    <input class="number-input" id="num-input" type="text" value="" placeholder="请输入数字">
+    <button class="btn" id="left-in" onclick="leftIn()">左侧入</button>
+    <button class="btn" id="right-in" onclick="rightIn()">右侧入</button>
+    <button class="btn" id="left-out" onclick="leftOut()">左侧出</button>
+    <button class="btn" id="right-out" onclick="rightOut()">右侧出</button>
+    <ul class="block-list" id="block-list"></ul>
+</body>
+<script>
+
+    function getNumberAndGenerateNode () {
+        let num = document.getElementById('num-input');
+        if (num.value && !isNaN(num.value)){ //!isNan() 可以用来判断是不是数字, 返回boolean
+            let node = document.createElement('li'); //生成节点
+            node.innerHTML = num.value;
+            return node;
+        } else {
+            alert("请输入一个数字");
+        }
+    }
+
+    function leftIn() {
+        let list = document.getElementById('block-list');
+        let node = getNumberAndGenerateNode();
+        if (node !== undefined) {
+            list.insertBefore(node, list.firstElementChild);
+        }
+    }
+
+    function rightIn() {
+        let list = document.getElementById('block-list');
+        let node = getNumberAndGenerateNode();
+        console.log(list.children);
+        if (node !== undefined) {
+            list.appendChild(node);
+        }
+    }
+
+    function leftOut() {
+        let list = document.getElementById('block-list');
+        if (list.firstElementChild !== null) {
+            alert('您即将删除' + list.firstElementChild.innerHTML);
+            list.removeChild(list.firstElementChild);
+        } else {
+            alert('没有元素可以删除');
+        }
+    }
+
+    function rightOut() {
+        let list = document.getElementById('block-list');
+        if (list.firstElementChild !== null) {
+            alert('您即将删除' + list.lastElementChild.innerHTML);
+            list.removeChild(list.lastElementChild);
+        } else {
+            alert('没有元素可以删除');
+        }
+    }
+
+</script>
+<style>
+
+    .number-input {
+        width: 200px;
+    }
+
+    .btn {
+        background: #fff;
+        border-radius: 5px;
+    }
+
+    .block-list {
+        margin: 0;
+        list-style: none;
+    }
+
+    .block-list li {
+        float: left;
+        height: 30px;
+        padding: 20px;
+        color: #fff;
+        background-color: #f00;
+        margin-right: 15px;
+        font-size: 25px;
+        line-height: 30px;
+        vertical-align: middle;
+        text-align: center;
+        margin-top: 15px;
+    }
+
+</style>
+</html>
