@@ -14,28 +14,36 @@
     <button class="btn" id="right-in">右侧入</button>
     <button class="btn" id="left-out">左侧出</button>
     <button class="btn" id="right-out">右侧出</button>
+    <button class="btn" id="sort">从小到大排序</button>    
     <ul class="block-list" id="block-list"></ul>
 </body>
 <script>
 
     window.onload = function () {
-
         init();
-
     };
 
     function init() {
-
         let leftInBtn = document.getElementById("left-in");
         let rightInBtn = document.getElementById("right-in");
         let leftOutBtn = document.getElementById("left-out");
         let rightOutBtn = document.getElementById("right-out");
 
-        leftInBtn.onclick = leftIn;
-        rightInBtn.onclick = rightIn;
-        leftOutBtn.onclick = leftOut;
-        rightOutBtn.onclock = rightOut;
+        leftInBtn.onclick = function () {
+            elementIn(this);
+        }
 
+        rightInBtn.onclick = function () {
+            elementIn(this);
+        }
+
+        leftOutBtn.onclick = function () {
+            elementOut(this);
+        }
+
+        rightOutBtn.onclick = function () {
+            elementOut(this);
+        }
     }
 
     function getNumberAndGenerateNode() {
@@ -55,45 +63,31 @@
         }
     }
 
-    function leftIn() {
-        let list = document.getElementById('block-list');
-        let node = getNumberAndGenerateNode();
-        if (node !== undefined) {
-            list.insertBefore(node, list.firstElementChild);
-        }
-    }
-
-    function rightIn() {
-        let list = document.getElementById('block-list');
-        let node = getNumberAndGenerateNode();
-        if (node !== undefined) {
-            list.appendChild(node);
-        }
-    }
-
-    function elementIn () {
+    function elementIn (o) {
         let list = document.getElementById('block-list');   
         let node = getNumberAndGenerateNode();
         if (node !== undefined) {
-
+            if (o.id === 'left-in'){
+                list.insertBefore(node, list.firstElementChild);                
+            }
+            if (o.id === 'right-in'){
+                list.appendChild(node);                
+            }
         }                     
     }
 
-    function leftOut() {
+    function elementOut (o) {
         let list = document.getElementById('block-list');
-        if (list.firstElementChild !== null) {
-            alert('您即将删除' + list.firstElementChild.innerHTML);
-            list.removeChild(list.firstElementChild);
-        } else {
-            alert('没有元素可以删除');
+        let relativeChild;
+        if (o.id === 'left-out'){
+            relativeChild = list.firstElementChild;          
         }
-    }
-
-    function rightOut() {
-        let list = document.getElementById('block-list');
-        if (list.firstElementChild !== null) {
-            alert('您即将删除' + list.lastElementChild.innerHTML);
-            list.removeChild(list.lastElementChild);
+        if (o.id === 'right-out'){
+            relativeChild = list.lastElementChild;                       
+        }
+        if (relativeChild !== null) {
+            alert('即将删除 ' + relativeChild.innerHTML);
+            list.removeChild(relativeChild);
         } else {
             alert('没有元素可以删除');
         }
