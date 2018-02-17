@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <input class="number-input" id="num-input" type="text" value="" placeholder="请输入数字">
+    <input class="number-input" id="num-input" type="text" value="" placeholder="请输入10-100的数字(包含10和100)">
     <button class="btn" id="left-in">左侧入</button>
     <button class="btn" id="right-in">右侧入</button>
     <button class="btn" id="left-out">左侧出</button>
@@ -40,12 +40,18 @@
 
     function getNumberAndGenerateNode() {
         let num = document.getElementById('num-input');
-        if (num.value && !isNaN(num.value)) { //!isNan() 可以用来判断是不是数字, 返回boolean
+        if (num.value && !isNaN(num.value)) { //!isNan() 用来判断是不是数字, 返回boolean
+            if (num.value >= 10 && num.value <= 100){ //检测是不是在10-100区间内
             let node = document.createElement('li'); //生成节点
             node.innerHTML = num.value;
             return node;
+            } else {
+                alert("请输入10-100间的数字(包含10和100)");  
+                console.log('Node not generated.');            
+            }
         } else {
             alert("请输入一个数字");
+            console.log('Node not generated.');                        
         }
     }
 
@@ -63,6 +69,14 @@
         if (node !== undefined) {
             list.appendChild(node);
         }
+    }
+
+    function elementIn () {
+        let list = document.getElementById('block-list');   
+        let node = getNumberAndGenerateNode();
+        if (node !== undefined) {
+
+        }                     
     }
 
     function leftOut() {
@@ -88,7 +102,7 @@
 </script>
 <style>
     .number-input {
-        width: 200px;
+        width: 300px;
     }
 
     .btn {
