@@ -9,13 +9,14 @@
 </head>
 
 <body>
-    <input class="number-input" id="num-input" type="text" value="" placeholder="请输入10-100的数字(包含10和100)">
-    <button class="btn" id="left-in">左侧入</button>
-    <button class="btn" id="right-in">右侧入</button>
-    <button class="btn" id="left-out">左侧出</button>
-    <button class="btn" id="right-out">右侧出</button>
-    <button class="btn" id="up-sort">从小到大排序</button>
-    <button class="btn" id="down-sort">从大到小排序</button>    
+    <textarea class="content-input" id="content-input" type="text" value="" placeholder="请输入字符" name="" id="" cols="30" rows="10"></textarea>
+    <div class="btn-container">
+        <button class="btn" id="left-in" onclick="elementIn(this)">左侧入</button>
+        <button class="btn" id="right-in" onclick="elementIn(this)">右侧入</button>
+        <button class="btn" id="left-out" onclick="elementOut(this)">左侧出</button>
+        <button class="btn" id="right-out" onclick="elementOut(this)">右侧出</button>
+        <button class="btn" id="clear" onclick="clearAll()">清空</button>
+    </div>
     <ul class="block-list" id="block-list"></ul>
 </body>
 <script>
@@ -29,86 +30,53 @@
         let rightInBtn = document.getElementById("right-in");
         let leftOutBtn = document.getElementById("left-out");
         let rightOutBtn = document.getElementById("right-out");
-        let upSortBtn = document.getElementById('up-sort');
-        let downSortBtn = document.getElementById('down-sort');        
-
-        leftInBtn.onclick = function () {
-            elementIn(this);
-        }
-
-        rightInBtn.onclick = function () {
-            elementIn(this);
-        }
-
-        leftOutBtn.onclick = function () {
-            elementOut(this);
-        }
-
-        rightOutBtn.onclick = function () {
-            elementOut(this);
-        }
-
-        upSortBtn.onclick = function () {
-            simpleSort(this);
-        }
-
-        downSortBtn.onclick = function () {
-            simpleSort(this);
-        }
     }
 
-    function simpleSort(o) {
+    function clearAll() {
         let list = document.getElementById('block-list');
-        let nums = [];
-        for (let i = 0; i < list.children.length; i++) { //获取一个 HTMLCollection 并把每个子元素加入数组
-            nums.push(list.children.item(i));
-        }
-        nums = nums.sort(function (a, b) { //排序
-            if (o.id === 'up-sort') {
-                return parseInt(a.innerHTML) - parseInt(b.innerHTML);
-            };
-            if (o.id === 'down-sort') {
-                return parseInt(b.innerHTML) - parseInt(a.innerHTML);
-            };
-        });
-        nums.forEach(function (e) {
-            list.appendChild(e);
-        });
+        list.innerHTML = '';
     }
 
-    function getNumberAndGenerateNode() {
-        let num = document.getElementById('num-input');
+    var splitString = (str) => { //匹配正则表达式分割字符
+        return str.split(/[\n\t\s,，、]/g)
+    }
+
+    function generateNode() {
+        let content = document.getElementById('content-input');
         let list = document.getElementById('block-list');
         if (list.children.length >= 59) {
             alert("元素数已经超过60个");
             console.log('Node not generated.');
         } else {
-            if (num.value && !isNaN(num.value)) { //!isNan() 用来判断是不是数字, 返回boolean
-                if (num.value >= 10 && num.value <= 100) { //检测是不是在10-100区间内
-                    let node = document.createElement('li'); //生成节点
-                    node.style.height = (200 * (num.value / 100)) + 'px';
-                    node.innerHTML = num.value;
-                    return node;
-                } else {
-                    alert("请输入10-100间的数字(包含10和100)");
-                    console.log('Node not generated.');
+            if (content.value) { //有输入内容
+                let nodeList = [];
+                let strList = splitString(content.value)
+                for (let str of strList) {
+                    let node = document.createElement('li') //生成节点
+                    node.innerHTML = str
+                    nodeList.push(node)
                 }
+                return nodeList;
             } else {
-                alert("请输入一个数字");
                 console.log('Node not generated.');
             }
         }
     }
 
-    function elementIn(o) {
+    var elementIn = (o) => {
         let list = document.getElementById('block-list');
-        let node = getNumberAndGenerateNode();
-        if (node !== undefined) {
+        let nodeList = generateNode();
+        if (nodeList !== undefined) {
             if (o.id === 'left-in') { //判断是从左边还是右边插入
-                list.insertBefore(node, list.firstElementChild);
+                nodeList.reverse()
+                for (let node of nodeList) {
+                    list.insertBefore(node, list.firstElementChild);
+                }
             }
             if (o.id === 'right-in') {
-                list.appendChild(node);
+                for (let node of nodeList) {
+                    list.appendChild(node)
+                }
             }
         }
     }
@@ -132,35 +100,38 @@
 
 </script>
 <style>
-    .number-input {
+    .content-input {
         width: 300px;
+    }
+
+    .btn-container {
+        display: flex;
     }
 
     .btn {
         background: #fff;
         border-radius: 5px;
+        margin-right: 5px;
     }
 
     .block-list {
-        height: 200px;
-        margin: 30px 0 0 0;
-        padding-left: 30px;
+        padding: 20px;
         list-style: none;
         display: flex;
-        align-items: flex-end;
-        flex-wrap: nowrap;
+        align-items: center;
+        flex-wrap: wrap;
     }
 
     .block-list li {
-        margin-top: 15px;
-        float: left;
+        height: 30px;
+        display: inline-flex;
         color: #fff;
-        background-color: #f00;
-        margin-right: 5px;
+        background-color: rgb(232, 105, 51);
+        margin: 5px;
         font-size: 10px;
-        width: 20px;
-        padding-top: 5px;
+        padding: 5px 8px;
         text-align: center;
+        align-items: center;
     }
 </style>
 
