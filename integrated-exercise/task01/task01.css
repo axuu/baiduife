@@ -4,7 +4,8 @@ body {
 }
 
 .container {
-    margin: 20px;
+    margin: 45px;
+    position: relative;
 }
 
 .container span {
@@ -14,12 +15,14 @@ body {
 }
 
 .container .basic {
+    box-sizing: border-box;
     height: 30px;
     width: 350px;
     border-radius: 5px;
     border: 1px solid #d9d9d9;
     vertical-align: middle;   
     margin-right: 10px; 
+    padding: 0 5px;
 }
 
 .container button {
@@ -29,4 +32,26 @@ body {
     vertical-align: middle;
     background-color: #347ab8;
     color: #fff;    
+}
+
+.toaster {
+    position: absolute;
+    bottom: -30px;
+    left: 52px;
+}
+
+.basic.right {
+    border-color: #62ae4a;
+}
+
+.basic.wrong {
+    border-color: #ff0000;
+}
+
+.toaster.right {
+    color: #62ae4a;
+}
+
+.toaster.wrong {
+    color: #ff0000;
 }

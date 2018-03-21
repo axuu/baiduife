@@ -14,22 +14,105 @@
         <div class="container">
             <span>名称</span>
             <input type="text" class="basic">
-            <button>验证</button>
+            <button class="check-btn" id="b1">验证</button>
         </div>
         <div class="container">
             <span>名称</span>
             <input type="text" class="basic">
-            <button>验证</button>
+            <button class="check-btn" id="b2">验证</button>
         </div>
         <div class="container">
             <span>名称</span>
             <input type="text" class="basic">
-            <button>验证</button>
+            <button class="check-btn" id="b3">验证</button>
         </div>
     </div>
 </body>
 
 <script>
     
+    function init() { //初始化
+        let btns = document.getElementsByClassName('check-btn')
+        for (let i = 0; i < btns.length; i++) { //给每个按钮绑定点击事件
+            btns[i].addEventListener("click", function () {
+                checkLength(btns[i])
+            })
+        }
+    }
+
+    function trim(str, type) { //去除空格 type:  1-所有空格  2-前后空格  3-前空格 4-后空格
+        type = type || 1
+        switch (type) {
+            case 1:
+                return str.replace(/\s+/g, "");
+            case 2:
+                return str.replace(/(^\s*)|(\s*$)/g, "");
+            case 3:
+                return str.replace(/(^\s*)/g, "");
+            case 4:
+                return str.replace(/(\s*$)/g, "");
+            default:
+                return str;
+        }
+    }
+
+    String.prototype.getLength = function () { //获取字符长度
+        let l = this.replace(/[\u4E00-\u9FA5]/g, "aa").length //中文替换成两个字节的英文，再计算长度
+        return l
+    };
+
+    function checkLength(btn) {
+        let input = btn.previousElementSibling //选取上一个元素节点     
+        input.value = trim(input.value)
+        let l = input.value.getLength()
+        let toaster = toastMaker()
+        let txt, b
+        if (l === 0) {
+            txt = '姓名不能为空'
+            b = false
+        } else if (l >= 4 && l <= 16) {
+            txt = '名称格式正确'
+            b = true
+        } else {
+            txt = '名称格式不正确'
+            b = false
+        }
+        toaster(input, txt, b)
+    }
+
+    var toastMaker = function () { //增加更新
+        return function toaster(e, txt, b) {
+            let parent = e.parentNode
+            if (txt && typeof txt === 'string') {
+                let p = document.createElement("span")
+                p.innerHTML = txt
+                if (b) {
+                    p.setAttribute("class", "toaster right")
+                    e.setAttribute("class", "basic right")
+                } else {
+                    p.setAttribute("class", "toaster wrong")
+                    e.setAttribute("class", "basic wrong")
+                }
+                if (parent.lastElementChild.attributes["class"].value.indexOf('toaster') === -1) { //最后一个节点是不是 toaster 如果不是, 添加节点
+                    parent.appendChild(p)
+                    setTimeout(() => { //2秒后, 删除节点, 节点消失
+                        parent.removeChild(parent.lastElementChild)
+                        e.setAttribute("class", "basic")
+                        isToasting = false
+                    }, 2000)
+                }
+            } else {
+                //console.log('error')
+            }
+        }
+    }
+
+    init()
+
+    // * 字符串 trim
+    // * 计算字符串长度
+    // * 简单的 toaster 组件 (判断重复点击)
+
 </script>
+
 </html>
