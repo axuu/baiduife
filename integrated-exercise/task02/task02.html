@@ -46,6 +46,7 @@
         let pwdCheckInput = document.getElementById('pwd-check')
         let emailInput = document.getElementById('email')
         let phoneInput = document.getElementById('phone')
+        let checkAllBtn = document.getElementById('check-all')
 
         //给每个输入框绑定点击事件
 
@@ -80,6 +81,14 @@
         phoneInput.onblur = function () {
             checkPhone(this)
         }
+
+        checkAllBtn.onclick = function () {
+            if (checkName(nameInput) && 　checkPwd(pwdInput) && checkPwdSame(pwdCheckInput) && checkEmail(emailInput) && checkPhone(phoneInput)) {
+                alert('输入成功!')
+            } else {
+                alert('输入有误!')
+            }
+        }
     }
 
     function checkName(input) {
@@ -113,7 +122,7 @@
             b = true
         }
         toaster(input, txt, b)
-        return b 
+        return b
     }
 
     function checkPwdSame(input) {
@@ -136,7 +145,7 @@
             }
         }
         toaster(input, txt, b)
-        return b        
+        return b
     }
 
     function checkEmail(input) {
@@ -153,7 +162,7 @@
             txt = '邮箱格式错误'
         }
         toaster(input, txt, b)
-        return b        
+        return b
     }
 
     function checkPhone(input) {
@@ -170,7 +179,7 @@
             txt = '手机号格式错误'
         }
         toaster(input, txt, b)
-        return b        
+        return b
     }
 
     function toaster(e, txt, b) {
@@ -219,6 +228,10 @@
         }
     }
 
+    function checkAll() {
+
+    }
+
     String.prototype.getLength = function () { //获取字符长度
         let l = this.replace(/[\u4E00-\u9FA5]/g, "aa").length //中文替换成两个字节的英文，再计算长度
         return l
@@ -239,7 +252,7 @@
                 return str
         }
     }
-    
+
     function checkEmailFormat(str) { //正则验证邮箱
         var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$"); //正则表达式
         if (!reg.test(str)) { //正则验证不通过，格式不对
