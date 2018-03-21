@@ -1,0 +1,61 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    margin: 45px;
+    position: relative;
+    text-align: right;
+}
+
+.container span {
+    font-size: 14px;
+    margin-right: 18px;
+    vertical-align: middle;
+}
+
+.container .basic {
+    box-sizing: border-box;
+    height: 30px;
+    width: 350px;
+    border-radius: 5px;
+    border: 1px solid #d9d9d9;
+    vertical-align: middle;   
+    padding: 0 5px;
+}
+
+.check-btn {
+    height: 30px;
+    border-radius: 5px; 
+    width: 50px;   
+    vertical-align: middle;
+    background-color: #347ab8;
+    color: #fff;      
+}
+
+.toaster {
+    position: absolute;
+    bottom: -30px;
+    left: 80px;
+}
+
+.basic.right {
+    border-color: #62ae4a;
+}
+
+.basic.wrong {
+    border-color: #ff0000;
+}
+
+.toaster.right {
+    color: #62ae4a;
+}
+
+.toaster.wrong {
+    color: #ff0000;
+}
+
+.toaster.default {
+    color: #b9b9b9;
+}

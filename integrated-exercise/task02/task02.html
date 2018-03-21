@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Task 02</title>
+    <link rel="stylesheet" href="task02.css">
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="container">
+            <span>名称</span>
+            <input id="name" type="text" class="basic">
+        </div>
+        <div class="container">
+            <span>密码</span>
+            <input id="pwd" type="password" class="basic">
+        </div>
+        <div class="container">
+            <span>密码确认</span>
+            <input id="pwd-check" type="password" class="basic">
+        </div>
+        <div class="container">
+            <span>邮箱</span>
+            <input id="email" type="email" class="basic">
+        </div>
+        <div class="container">
+            <span>手机</span>
+            <input id="phone" type="text" class="basic">
+        </div>
+        <div class="container">
+            <button class="check-btn" id="check-all">验证</button>
+        </div>
+    </div>
+</body>
+
+<script>
+
+    function init() { //初始化
+
+        let nameInput = document.getElementById('name')
+        let pwdInput = document.getElementById('pwd')
+        let pwdCheckInput = document.getElementById('pwd-check')
+        let emailInput = document.getElementById('email')
+        let phoneInput = document.getElementById('phone')
+
+        //给每个输入框绑定点击事件
+
+        nameInput.onfocus = function () {
+            showHint(this, '必填, 长度为4-16个字符')
+        }
+        pwdInput.onfocus = function () {
+            showHint(this, '必填, 长度为8-16个字符')
+        }
+        pwdCheckInput.onfocus = function () {
+            showHint(this, '再次输入相同密码, 长度为8-16个字符')
+        }
+        emailInput.onfocus = function () {
+            showHint(this, '必填, 请输入邮箱格式')
+        }
+        phoneInput.onfocus = function () {
+            showHint(this, '必填, 长度为11位手机号')
+        }
+
+        nameInput.onblur = function () {
+            checkName(this)
+        }
+        pwdInput.onblur = function () {
+            checkPwd(this)
+        }
+        pwdCheckInput.onblur = function () {
+            checkPwdSame(this)
+        }
+        emailInput.onblur = function () {
+            checkEmail(this)
+        }
+        phoneInput.onblur = function () {
+            checkPhone(this)
+        }
+    }
+
+    function checkName(input) {
+        input.value = trim(input.value)
+        let l = input.value.getLength()
+        let txt
+        let b = false
+        if (l === 0) {
+            txt = '姓名不能为空'
+        } else if (l >= 4 && l <= 16) {
+            txt = '名称格式正确'
+            b = true
+        } else {
+            txt = '名称格式不正确'
+        }
+        toaster(input, txt, b)
+        return b
+    }
+
+    function checkPwd(input) {
+        input.value = trim(input.value)
+        let l = input.value.getLength()
+        let txt
+        let b = false
+        if (l === 0) {
+            txt = '密码不能为空'
+        } else if (l < 8) {
+            txt = '密码不能小于8位'
+        } else {
+            txt = '密码可用'
+            b = true
+        }
+        toaster(input, txt, b)
+        return b 
+    }
+
+    function checkPwdSame(input) {
+        input.value = trim(input.value)
+        let l = input.value.getLength()
+        let txt
+        let b = false
+        if (l === 0) {
+            txt = '密码不能为空'
+        } else if (l < 8) {
+            txt = '密码不能小于8位'
+        } else {
+            let pwdInput = document.getElementById('pwd')
+            let pwdCheckInput = document.getElementById('pwd-check')
+            if (pwdInput.value !== pwdCheckInput.value) {
+                txt = '两次密码不一致'
+            } else {
+                txt = '密码可用'
+                b = true
+            }
+        }
+        toaster(input, txt, b)
+        return b        
+    }
+
+    function checkEmail(input) {
+        input.value = trim(input.value)
+        let txt
+        let b = false
+        let isEmail = checkEmailFormat(input.value)
+        if (input.value == '') {
+            txt = '邮箱不能为空'
+        } else if (isEmail) {
+            txt = '邮箱格式正确'
+            b = true
+        } else {
+            txt = '邮箱格式错误'
+        }
+        toaster(input, txt, b)
+        return b        
+    }
+
+    function checkPhone(input) {
+        input.value = trim(input.value)
+        let txt
+        let b = false
+        let isPhone = checkPhoneFormat(input.value)
+        if (input.value == '') {
+            txt = '手机号不能为空'
+        } else if (isPhone) {
+            txt = '手机号格式正确'
+            b = true
+        } else {
+            txt = '手机号格式错误'
+        }
+        toaster(input, txt, b)
+        return b        
+    }
+
+    function toaster(e, txt, b) {
+        if (txt && typeof txt === 'string') {
+            let p = document.createElement("span")
+            p.innerHTML = txt
+            if (b) {
+                p.setAttribute("class", "toaster right")
+                e.setAttribute("class", "basic right")
+            } else {
+                p.setAttribute("class", "toaster wrong")
+                e.setAttribute("class", "basic wrong")
+            }
+            let parent = e.parentNode
+            if (parent.lastElementChild.attributes["class"].value.indexOf('toaster') === -1) { //判断是否已经存在
+                parent.appendChild(p)
+            } else { //如果是更新节点内容
+                parent.lastElementChild.innerHTML = txt
+                if (b) {
+                    parent.lastElementChild.setAttribute("class", "toaster right")
+                    e.setAttribute("class", "basic right")
+                } else {
+                    parent.lastElementChild.setAttribute("class", "toaster wrong")
+                    e.setAttribute("class", "basic wrong")
+                }
+            }
+        } else {
+            //console.log('error')
+        }
+    }
+
+    function showHint(e, txt) {
+        if (txt && typeof txt === 'string') {
+            let parent = e.parentNode //获取父节点
+            let p = document.createElement("span")
+            p.innerHTML = txt
+            p.setAttribute("class", "toaster default")
+            if (parent.lastElementChild.attributes["class"].value.indexOf('toaster') === -1) { //判断是否已经存在
+                parent.appendChild(p)
+            } else { //如果是更新节点内容
+                parent.lastElementChild.setAttribute("class", "toaster default")
+                parent.lastElementChild.innerHTML = txt
+            }
+        } else {
+            //console.log('error')
+        }
+    }
+
+    String.prototype.getLength = function () { //获取字符长度
+        let l = this.replace(/[\u4E00-\u9FA5]/g, "aa").length //中文替换成两个字节的英文，再计算长度
+        return l
+    };
+
+    function trim(str, type) { //去除空格 type:  1-所有空格  2-前后空格  3-前空格 4-后空格
+        type = type || 1
+        switch (type) {
+            case 1:
+                return str.replace(/\s+/g, "")
+            case 2:
+                return str.replace(/(^\s*)|(\s*$)/g, "")
+            case 3:
+                return str.replace(/(^\s*)/g, "")
+            case 4:
+                return str.replace(/(\s*$)/g, "")
+            default:
+                return str
+        }
+    }
+    
+    function checkEmailFormat(str) { //正则验证邮箱
+        var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$"); //正则表达式
+        if (!reg.test(str)) { //正则验证不通过，格式不对
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    function checkPhoneFormat(str) { //正则验证手机
+        var reg = /^1\d{10}$/; //正则表达式
+        if (!reg.test(str)) { //正则验证不通过，格式不对
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    init()
+
+</script>
+
+</html>
