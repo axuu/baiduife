@@ -73,7 +73,7 @@
             checkPwd(this)
         }
         pwdCheckInput.onblur = function () {
-            checkPwdSame(this)
+            checkPwd(this)
         }
         emailInput.onblur = function () {
             checkEmail(this)
@@ -82,8 +82,8 @@
             checkPhone(this)
         }
 
-        checkAllBtn.onclick = function () {
-            if (checkName(nameInput) && 　checkPwd(pwdInput) && checkPwdSame(pwdCheckInput) && checkEmail(emailInput) && checkPhone(phoneInput)) {
+        checkAllBtn.onclick = function () { //检查所有输入项
+            if (checkName(nameInput) && checkPwd(pwdInput) && checkPwdSame(pwdCheckInput) && checkEmail(emailInput) && checkPhone(phoneInput)) {
                 alert('输入成功!')
             } else {
                 alert('输入有误!')
@@ -118,23 +118,6 @@
         } else if (l < 8) {
             txt = '密码不能小于8位'
         } else {
-            txt = '密码可用'
-            b = true
-        }
-        toaster(input, txt, b)
-        return b
-    }
-
-    function checkPwdSame(input) {
-        input.value = trim(input.value)
-        let l = input.value.getLength()
-        let txt
-        let b = false
-        if (l === 0) {
-            txt = '密码不能为空'
-        } else if (l < 8) {
-            txt = '密码不能小于8位'
-        } else {
             let pwdInput = document.getElementById('pwd')
             let pwdCheckInput = document.getElementById('pwd-check')
             if (pwdInput.value !== pwdCheckInput.value) {
@@ -142,6 +125,8 @@
             } else {
                 txt = '密码可用'
                 b = true
+                toaster(pwdInput, txt, b)
+                toaster(pwdCheckInput, txt, b)
             }
         }
         toaster(input, txt, b)
@@ -186,18 +171,17 @@
         if (txt && typeof txt === 'string') {
             let p = document.createElement("span")
             p.innerHTML = txt
-            if (b) {
-                p.setAttribute("class", "toaster right")
-                e.setAttribute("class", "basic right")
-            } else {
-                p.setAttribute("class", "toaster wrong")
-                e.setAttribute("class", "basic wrong")
-            }
             let parent = e.parentNode
-            if (parent.lastElementChild.attributes["class"].value.indexOf('toaster') === -1) { //判断是否已经存在
+            if (parent.lastElementChild.attributes["class"].value.indexOf('toaster') === -1) { //判断 toast 是否已经存在, 如果不存在增加节点
+                if (b) {
+                    p.setAttribute("class", "toaster right")
+                    e.setAttribute("class", "basic right")
+                } else {
+                    p.setAttribute("class", "toaster wrong")
+                    e.setAttribute("class", "basic wrong")
+                }
                 parent.appendChild(p)
             } else { //如果是更新节点内容
-                parent.lastElementChild.innerHTML = txt
                 if (b) {
                     parent.lastElementChild.setAttribute("class", "toaster right")
                     e.setAttribute("class", "basic right")
@@ -205,6 +189,7 @@
                     parent.lastElementChild.setAttribute("class", "toaster wrong")
                     e.setAttribute("class", "basic wrong")
                 }
+                parent.lastElementChild.innerHTML = txt
             }
         } else {
             //console.log('error')
@@ -226,10 +211,6 @@
         } else {
             //console.log('error')
         }
-    }
-
-    function checkAll() {
-
     }
 
     String.prototype.getLength = function () { //获取字符长度
@@ -254,8 +235,8 @@
     }
 
     function checkEmailFormat(str) { //正则验证邮箱
-        var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$"); //正则表达式
-        if (!reg.test(str)) { //正则验证不通过，格式不对
+        var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$");
+        if (!reg.test(str)) {
             return false;
         } else {
             return true;
@@ -263,8 +244,8 @@
     }
 
     function checkPhoneFormat(str) { //正则验证手机
-        var reg = /^1\d{10}$/; //正则表达式
-        if (!reg.test(str)) { //正则验证不通过，格式不对
+        var reg = /^1\d{10}$/;
+        if (!reg.test(str)) {
             return false;
         } else {
             return true;
