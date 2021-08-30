@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS Animation Task 4</title>
+    <style>
+        body {
+            padding: 80px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+        }
+    
+        #front,
+        #back,
+        .container {
+            width: 250px;
+            height: 350px;
+        }
+    
+        .container {
+            position: relative;
+            /* transform-style: preserve-3d;  */
+            /* 打开页面后第一次 hover 会卡顿, 之后正常, 只存在于 Chrome, Safari正常, 原因待研究 */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+            -webkit-perspective: 600px;
+                    perspective: 600px;
+        }
+    
+        #front {
+            -webkit-backface-visibility: hidden;
+                    backface-visibility: hidden; 
+            -webkit-transition: transform .7s ease-in-out;
+            -webkit-transition: -webkit-transform .7s ease-in-out;
+            transition: -webkit-transform .7s ease-in-out;
+            transition: transform .7s ease-in-out;
+            transition: transform .7s ease-in-out, -webkit-transform .7s ease-in-out;
+        }
+    
+        .container:hover #front{
+            -webkit-transform: rotateY(180deg);
+                    transform: rotateY(180deg);
+        }
+    
+        #back {
+            -webkit-transform: rotateY(-180deg);
+                    transform: rotateY(-180deg);
+            position: absolute;
+            -webkit-transition: transform .7s ease-in-out;
+            -webkit-transition: -webkit-transform .7s ease-in-out;
+            transition: -webkit-transform .7s ease-in-out;
+            transition: transform .7s ease-in-out;
+            transition: transform .7s ease-in-out, -webkit-transform .7s ease-in-out;  
+            -webkit-backface-visibility: hidden;  
+                    backface-visibility: hidden;      
+        }
+    
+        .container:hover #back {
+            -webkit-transform: rotateY(0deg);
+                    transform: rotateY(0deg);                        
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img id="front" src="img/task4/front.jpg" alt="正面">
+        <img id="back" src="img/task4/back.jpg" alt="反面">
+    </div>
+</body>
+</html>
+
+<!--
+                             _ooOoo_
+                            o8888888o
+                            88" . "88
+                            (| -_- |)
+                            O\  =  /O
+                         ____/`- -'\____
+                       .'  \\|     |//  `.
+                      /  \\|||  :  |||//  \
+                     /  _||||| -:- |||||-  \
+                     |   | \\\  -  /// |   |
+                     | \_|  ''\- -/''  |   |
+                     \  .-\__  `-`  ___/-. /
+                   ___`. .'  /- . -\  `. . __
+                ."" '<  `.___\_<|>_/___.'  >'"".
+               | | :  `- \`.;`\ _ /`;.`/ - ` : | |
+               \  \ `-.   \_ __\ /__ _/   .-` /  /
+          ======`-.____`-.___\_____/___.-`____.-'======
+                             `=- -='
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        佛祖保佑   永无BUG
+-->

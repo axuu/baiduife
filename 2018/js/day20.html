@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IFE ECMAScript Day 20</title>
+    <style>
+        select {
+            display: none;
+        }
+
+        select.show {
+            display: inline
+        }
+
+        .palette {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .palette li {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #000;
+            cursor: pointer;
+        }
+
+        .container {
+            width: 480px;
+            height: 480px;
+            overflow: hidden;
+        }
+
+        .container .sprite {
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--  task1  -->
+
+    <div>
+        <input id="name" type="text">
+        <button id="submit-btn">Submit</button>
+    </div>
+
+    <!--  task2  -->
+
+    <label>
+        <input id="school" name="status" type="radio"> School
+    </label>
+    <label>
+        <input id="company" name="status" type="radio"> Company
+    </label>
+
+    <select id="school-select">
+        <option>北京邮电大学</option>
+        <option>黑龙江大学</option>
+        <option>华中科技大学</option>
+    </select>
+
+    <select id="company-select">
+        <option>百度</option>
+        <option>爱奇艺</option>
+    </select>
+
+    <!--  task3  -->
+
+    <ul class="palette">
+        <li style="background-color:crimson"></li>
+        <li style="background-color:bisque"></li>
+        <li style="background-color:blueviolet"></li>
+        <li style="background-color:coral"></li>
+        <li style="background-color:chartreuse"></li>
+        <li style="background-color:darkolivegreen"></li>
+        <li style="background-color:cyan"></li>
+        <li style="background-color:#194738"></li>
+    </ul>
+
+    <p class="color-picker"></p>
+
+    <!--  task4  -->
+
+    <div id="fade-obj" style="width:300px;height:300px;background:#000"></div>
+    <button id="fade-btn">淡出</button>
+
+    <!--  task5  -->
+
+    <div class="container">
+        <img class="sprite" src="http://ife.baidu.com/2016/static/img/erik_ce204002.jpg" alt="">
+    </div>
+
+</body>
+<script>
+    /* ---------- task1 ---------- */
+
+    (function () {
+        let btn = document.getElementById('submit-btn')
+        let nameInput = document.getElementById('name')
+        btn.addEventListener('click', () => {
+            console.log(nameInput.value)
+        })
+
+        function listenKey(e) { //按键信息对象e以函数参数的形式传递
+            if (e.key === "Enter") {
+                console.log(nameInput.value)
+            }
+            if (e.key === 'Escape') {
+                nameInput.value = ''
+            }
+        }
+        nameInput.addEventListener('focus', function () {
+            document.addEventListener('keydown', listenKey) // 这里如果是 keypress 事件, 捕获不到 Esc 这个键, 故改为 keydown
+        })
+        nameInput.addEventListener('blur', function () {
+            document.removeEventListener('keydown', listenKey)
+        })
+    })(); // 立即执行函数后面要加上分号避免浏览器报错
+
+    /* ---------- task2 ---------- */
+
+    (function () {
+        let radios = [document.querySelector('#school'), document.querySelector('#company')]
+        let selects = [document.querySelector('#school-select'), document.querySelector('#company-select')]
+        for (let i = 0; i < radios.length; i++) {
+            radios[i].addEventListener('change', function () { // 绑定事件
+                for (let i = 0; i < radios.length; i++) {
+                    if (radios[i].checked) {
+                        selects[i].className = 'show'
+                    } else {
+                        console.log('11')
+                        selects[i].className = ''
+                    }
+                }
+            })
+        }
+    })();
+
+    /* ---------- task3 ---------- */
+
+    (function () {
+        var list = document.querySelectorAll(".palette li");
+        for (var i = i = 0, len = list.length; i < len; i++) {
+            list[i].addEventListener('click', function (e) {
+                var t = e.target;
+                var c = t.style.backgroundColor;
+                console.log(c)
+                var p = document.getElementsByClassName("color-picker")[0]
+                p.innerHTML = c;
+                p.style.color = c;
+            })
+        }
+    })();
+
+    /* ---------- task4 ---------- */
+
+    (function () {
+        let fadeBtn = document.querySelector('#fade-btn')
+        let obj = document.querySelector('#fade-obj')
+        let isOut = true // 状态控制, 是否是淡出
+        let transFn = function () {
+            obj.style.opacity = isOut ? 1 : 0
+            fadeBtn.disabled = true
+            let trans = setInterval(() => {
+                if (isOut ? obj.style.opacity > 0 : obj.style.opacity < 1) {
+                    obj.style.opacity = isOut ? parseFloat(obj.style.opacity) - 0.01 : parseFloat(obj.style
+                        .opacity) + 0.01 //需要对 opacity 进行处理否则会出现异常
+                } else {
+                    fadeBtn.disabled = false
+                    isOut = !isOut
+                    fadeBtn.innerHTML = isOut ? '淡出' : '淡入'
+                    clearInterval(trans)
+                }
+            }, 10)
+        }
+        fadeBtn.addEventListener('click', transFn)
+    })();
+
+    /* ---------- task5 ---------- */
+
+    (function () {
+        let sprite = document.querySelector('.sprite')
+        let frameCount = 17 // 总帧数
+        let frame = 0 // 当前播放第几帧
+        let isForward = true // 动画播放顺序
+        let trans = setInterval(() => {
+            if (isForward) {
+                frame = frame + 1
+            } else {
+                frame = frame - 1
+            }
+            if (frame == frameCount - 1 || frame == 0) { // 第一帧和最后一帧的时候改变播放顺序
+                isForward = !isForward
+            }
+            sprite.style.top = - (480 * frame) + 'px'                            
+        }, 80)
+    })();
+    
+</script>
+
+</html>

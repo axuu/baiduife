@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS Animation Task 6</title>
+    <link href="https://cdn.bootcss.com/normalize/8.0.0/normalize.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+    <style>
+        .main-container {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            min-width: 320px;
+            overflow: hidden;
+        }
+
+        .display {
+            width: 100%;
+            height: 100%;
+        }
+
+        .display .pic {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        /* 应用动画 */
+
+        .display .pic:target {
+            display: block;
+            z-index: 2;
+        }
+
+        /* 实在是没办法了, 可能不用 JS 不可能做出记忆上一个选择的图片的效果 */
+
+        .display .pic:nth-child(n):target+.pic:nth-child(n-1) {
+            z-index: 1;
+        }
+
+        #p1:target {
+            -webkit-animation: left-in .5s ease-out;
+            animation: left-in .5s ease-out;
+        }
+
+        #p2:target {
+            -webkit-animation: top-in .5s ease-out;
+            animation: top-in .5s ease-out;
+        }
+
+        #p3:target {
+            -webkit-animation: small-big 1s ease-in;
+            animation: small-big 1s ease-in;
+        }
+
+        #p4:target {
+            -webkit-animation: big-small 1s ease-out;
+            animation: big-small 1s ease-out;
+        }
+
+        #p5:target {
+            -webkit-animation: scale-rotate .7s ease-in-out;
+            animation: scale-rotate .7s ease-in-out;
+        }
+
+        /* 动画 */
+
+        @-webkit-keyframes left-in {
+            0% {
+                left: -500px;
+            }
+            100% {
+                left: 0;
+            }
+        }
+
+        @keyframes left-in {
+            0% {
+                left: -500px;
+            }
+            100% {
+                left: 0;
+            }
+        }
+
+        @-webkit-keyframes top-in {
+            0% {
+                top: -350px;
+            }
+            100% {
+                top: 0;
+            }
+        }
+
+        @keyframes top-in {
+            0% {
+                top: -350px;
+            }
+            100% {
+                top: 0;
+            }
+        }
+
+        @-webkit-keyframes small-big {
+            0% {
+                -webkit-transform: scale(.1, .1);
+                transform: scale(.1, .1)
+            }
+            100% {
+                -webkit-transform: scale(1, 1);
+                transform: scale(1, 1)
+            }
+        }
+
+        @keyframes small-big {
+            0% {
+                -webkit-transform: scale(.1, .1);
+                transform: scale(.1, .1)
+            }
+            100% {
+                -webkit-transform: scale(1, 1);
+                transform: scale(1, 1)
+            }
+        }
+
+        @-webkit-keyframes big-small {
+            0% {
+                -webkit-transform: scale(2, 2);
+                transform: scale(2, 2)
+            }
+            100% {
+                -webkit-transform: scale(1, 1);
+                transform: scale(1, 1)
+            }
+        }
+
+        @keyframes big-small {
+            0% {
+                -webkit-transform: scale(2, 2);
+                transform: scale(2, 2)
+            }
+            100% {
+                -webkit-transform: scale(1, 1);
+                transform: scale(1, 1)
+            }
+        }
+
+        @-webkit-keyframes scale-rotate {
+            0% {
+                -webkit-transform: rotate(-360deg) scale(.1, .1);
+                transform: rotate(-360deg) scale(.1, .1);
+            }
+            100% {
+                -webkit-transform: rotate(0deg) scale(1, 1);
+                transform: rotate(0deg) scale(1, 1);
+            }
+        }
+
+        @keyframes scale-rotate {
+            0% {
+                -webkit-transform: rotate(-360deg) scale(.1, .1);
+                transform: rotate(-360deg) scale(.1, .1);
+            }
+            100% {
+                -webkit-transform: rotate(0deg) scale(1, 1);
+                transform: rotate(0deg) scale(1, 1);
+            }
+        }
+
+        /* 缩略图 */
+
+        .thumbnail {
+            position: absolute;
+            padding: 0 8%;
+            width: 100%;
+            bottom: 2%;
+            height: auto;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            z-index: 2;
+        }
+
+        .thumbnail a {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            display: block;
+            float: left;
+            margin: 0 1%;
+            width: 18%;
+            height: calc(18.75vh);
+            background-position: center bottom;
+            background-size: contain;
+            background-repeat: no-repeat;
+            -webkit-filter: brightness(0.6);
+            filter: brightness(0.6);
+        }
+
+        #p1,
+        .thumbnail a:first-child {
+            background-image: url('img/task6/doctorstrange.jpg')
+        }
+
+        #p2,
+        .thumbnail a:nth-child(2) {
+            background-image: url('img/task6/ironman.jpg')
+        }
+
+        #p3,
+        .thumbnail a:nth-child(3) {
+            background-image: url('img/task6/scarletwitch.jpg')
+        }
+
+        #p4,
+        .thumbnail a:nth-child(4) {
+            background-image: url('img/task6/thor.jpg')
+        }
+
+        #p5,
+        .thumbnail a:nth-child(5) {
+            background-image: url('img/task6/captainamerica.jpg')
+        }
+
+        .thumbnail a:hover {
+            -webkit-filter: brightness(1.1);
+            filter: brightness(1.1)
+        }
+
+        /* 小屏 */
+
+        @media (max-width: 640px) {
+            .display {
+                height: 40%;
+            }
+            .display .pic {
+                background-size: 100% auto;
+                background-position: center top;
+            }
+            .thumbnail {
+                padding: 0;
+                bottom: 0;
+                height: 60%;
+            }
+            .thumbnail a {
+                height: 33.33%;
+                width: 50%;
+                margin: 0;
+                background-size: cover;
+            }
+            .thumbnail a:nth-child(5) {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="display">
+            <div class="pic" id="p5"></div>
+            <div class="pic" id="p4"></div>
+            <div class="pic" id="p3"></div>
+            <div class="pic" id="p2"></div>
+            <div class="pic" id="p1"></div>
+        </div>
+        <div class="thumbnail">
+            <a href="#p1"></a>
+            <a href="#p2"></a>
+            <a href="#p3"></a>
+            <a href="#p4"></a>
+            <a href="#p5"></a>
+        </div>
+    </div>
+</body>
+
+</html>

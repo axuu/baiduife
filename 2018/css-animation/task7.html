@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS Animation Task 7</title>
+    <link href="https://cdn.bootcss.com/normalize/8.0.0/normalize.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+    <style type="text/css">
+        html {
+            font-size: 62.5%;
+            font-family: 'Open Sans', 'Helvetica Neue', Arial, 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+        }
+
+        body {
+            font-size: 1.8em;
+            line-height: 3;
+            background-color: #eeeeee;
+        }
+
+        h3 {
+            font-size: 1.8em;
+            margin-bottom: 3rem;
+            line-height: 1.5;
+            font-weight: 800;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+        }
+
+        .site-container {
+            max-width: 320px;
+            margin: 10px auto;
+            padding-left: 0.6em;
+            padding-right: 0.6em;
+            padding-top: 3%;
+            padding-bottom: 3%;
+        }
+
+        @media screen and (min-width: 60.063em) {
+            .site-container {
+                max-width: 400px;
+            }
+        }
+
+        .card {
+            position: relative;
+            overflow: hidden;
+            background-color: white;
+            -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.24), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.24), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+            border-radius: 2px;
+            padding: 1em 1.5em;
+        }
+
+        .form__wrapper {
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            display: inline-block;
+            margin-bottom: 1.6rem;
+            width: 100%;
+            vertical-align: top;
+        }
+
+        .form__wrapper__submit {
+            padding: 1.6rem 0;
+        }
+
+        .form__input {
+            display: block;
+            position: relative;
+            margin-top: 1em;
+            padding: 0.84em 0;
+            width: 100%;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            color: #444;
+            font-size: 1.6rem;
+            outline: 0;
+            border: none;
+            border-bottom: solid 1px #ddd;
+        }
+
+        .form__input:focus {
+            background-position: 0 0;
+            color: #444;
+        }
+
+        .form__label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 0;
+            width: 100%;
+            height: calc(99%);
+            text-align: left;
+            pointer-events: none;
+            color: #999;
+        }
+
+        .form__label__content {
+            position: absolute;
+            top: 0;
+            -webkit-transition: top .15s ease-out;
+            transition: top .15s ease-out;
+        }
+
+        .form__input:focus~.form__label .form__label__content,
+        .form--filled .form__label__content {
+            font-size: 1.4rem;
+            top: -1.2rem;
+            -webkit-transition: top .15s ease-in;
+            transition: top .15s ease-in;
+        }
+
+        .btn {
+            width: 100%;
+            display: inline-block;
+            padding: 0.7em 1.5em;
+            border-radius: 2px;
+            background-color: #2196f3;
+            color: #fff;
+            border: 0;
+            outline: none;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: 400;
+            font-size: 1.6rem;
+            -webkit-box-shadow: 0 1px 3px 0 rgba(3, 30, 51, 0.24), 0 1px 2px 0 rgba(3, 30, 51, 0.12);
+            box-shadow: 0 1px 3px 0 rgba(3, 30, 51, 0.24), 0 1px 2px 0 rgba(3, 30, 51, 0.12);
+            -webkit-transition: all 0.2s ease;
+            transition: all 0.2s ease;
+        }
+
+        .btn:focus,
+        .btn:hover {
+            background-color: #0d8aee;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="site-container">
+        <section class="card">
+            <h3>Login</h3>
+            <form>
+                <div class="form__wrapper" data-wow-delay="0.5s">
+                    <input type="email" class="form__input" id="email" name="email">
+                    <label class="form__label" for="email">
+                        <span id="email-label" class="form__label__content">Email</span>
+                    </label>
+                </div>
+                <div class="form__wrapper" data-wow-delay="0.6s">
+                    <input type="password" class="form__input" id="password" name="password">
+                    <label class="form__label" for="password">
+                        <span class="form__label__content">Password</span>
+                    </label>
+                </div>
+                <div class="form__wrapper__submit pulse infinite" data-wow-delay="0.7s">
+                    <div class="form__input__submit">
+                        <button type="submit" name="submit" class="btn">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </section>
+</body>
+
+<script src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/jquery/jquery-1.10.2.min_65682a2.js"></script>
+<script>
+    $('.form__input').change(function () { // 检测 input 修改  
+        for (let i = 0; i < $('.form__input').length; i++) {
+            if ($.trim($('.form__input').eq(i).val())) { // 如果有内容
+                $('.form__label').eq(i).addClass('form--filled') // 添加 class
+            } else {
+                $('.form__label').eq(i).removeClass('form--filled') // 反之则清除 class   
+            }
+        }
+
+        if ($.trim($('.form__input').eq(0).val()) && $.trim($('.form__input').eq(1).val())) { // 当两个input都不为空
+            $('.form__wrapper__submit').addClass('animated') // 添加动画
+        } else {
+            $('.form__wrapper__submit').removeClass('animated') // 反之取消动画    
+        }
+    });
+</script>
+
+</html>

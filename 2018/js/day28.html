@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IFE ECMAScript Day 28</title>
+    <link href="https://lib.baomitu.com/normalize/8.0.0/normalize.min.css" rel="stylesheet">
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            padding: 20px;
+        }
+
+        .wrapper {
+            width: 200px;
+            height: 38px;
+            position: relative;
+        }
+
+        #email-input {
+            width: 100%;
+            height: 100%;
+            padding-left: 10px;
+            font-size: 13px;
+            outline: none;
+        }
+
+        #email-sug-wrapper {
+            display: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            top: 100%;
+            list-style: none;
+            border: solid 1px #d9d9d9;
+            border-top: none;
+            position: absolute;
+        }
+
+        #email-sug-wrapper li{
+            display: block;
+            width: 100%;
+            height: 28px;
+            padding-left: 10px;
+            font-size: 13px;
+            line-height: 28px;
+            color: #c1c1c1;
+        }
+
+        #email-sug-wrapper li.selected{
+            background-color: #b8d9ea;
+            color: #fff;
+        }
+
+        #email-sug-wrapper li:hover{
+            background-color: #fdc5cf;
+            color: #fff;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <input id="email-input" type="text" autofocus="autofocus">
+        <ul id="email-sug-wrapper" class="email-sug"></ul>
+    </div>
+
+    <script>
+        // 邮箱后缀List参考
+        var postfixList = ['163.com', 'gmail.com', '126.com', 'qq.com', '263.net'];
+
+        (function () {
+            let emailInput = document.getElementById('email-input')
+            let sug = document.getElementById('email-sug-wrapper')
+
+            // 监听输入事件
+            emailInput.addEventListener('input', (e) => {
+                updateSug()
+                showSugOrNot()
+            }) 
+
+            // 获得焦点时监听键盘事件
+            emailInput.addEventListener('focus', function () {
+                document.addEventListener('keydown', listenKey)
+            })
+
+            // 失去焦点时取消监听键盘事件
+            emailInput.addEventListener('blur', function () {
+                document.removeEventListener('keydown', listenKey)
+            })
+
+            function listenKey (e) {
+                
+                // 按 esc 关闭提示框
+                if (e.key === 'Escape') { // 这里如果是 keypress 事件, 捕获不到 Esc 这个键, 故改为 keydown 事件
+                    hideSug()
+                    emailInput.select() // 选中输入框所有内容
+                }
+
+                // 上下与回车按键操作
+                if (e.key === 'ArrowDown' || e.key === 'ArrowUp' || e.key === 'Enter') {
+                    let v = getInputValue()
+                    if (v === '') return // 如果输入框没有内容, 不执行
+                    let lis = sug.querySelectorAll('li')
+                    let find = false // 是否找到选中状态的 Li
+                    for(let i = 0; i < lis.length; i++){ // 遍历所有子元素
+                        if (lis[i].className.indexOf('selected') != -1) { // 找到当前为选中状态的Li
+                            find = true
+                            if (e.key === 'ArrowDown') {
+                                lis[i].className = ''
+                                if (i != lis.length - 1) {
+                                    lis[i+1].className = 'selected'
+                                } else {
+                                    lis[0].className = 'selected'
+                                }
+                            }
+
+                            if (e.key === 'ArrowUp') {
+                                lis[i].className = ''
+                                if (i != 0) {
+                                    lis[i-1].className = 'selected'
+                                } else {
+                                    lis[0].className = 'selected'
+                                }
+                            }
+
+                            if (e.key === 'Enter') { 
+                                // 将找到的Li的HTML内容解码后填到input中, 隐藏提示框
+                                emailInput.value = HtmlUtil.htmlDecode(lis[i].innerHTML) // 进行解码
+                                hideSug()
+                            }
+                            break
+                        }
+                    }
+                    // 如果没有找到Li
+                    if (!find) {
+                        if (e.key === 'ArrowDown') {
+                            lis[0].className = 'selected'
+                        }
+                        if (e.key === 'ArrowUp') {
+                            lis[lis.length - 1].className = 'selected'
+                        }
+                    }
+                }
+
+            }
+
+            function getInputValue() {
+                // 拿到input输入框的输入内容trim后返回
+                let v = emailInput.value
+                v = v.trim()
+                return v
+            }
+
+            // 事件冒泡, 点击后把内容放在输入框中
+            sug.addEventListener('click',function(e){
+                if(e.target && e.target.nodeName.toUpperCase() == 'LI'){ // 判断目标事件是否为li
+                    emailInput.value = HtmlUtil.htmlDecode(e.target.innerHTML) // 进行解码
+                    hideSug()
+                    emailInput.focus() // 使填入内容后, 输入框仍然获得焦点
+                }
+            }, false);
+
+            function updateSug() {
+                // 获取生成提示框中的提示内容, 将内容添加到email-sug-wrapper中
+                let content = generateHints()
+                sug.innerHTML = ''
+                if (content.length > 0) {
+                    for(let i = 0; i < content.length; i++){
+                        sug.appendChild(content[i])
+                    }
+                }
+            }
+
+            function showSugOrNot() {
+                let v = getInputValue()
+                if (v === '') {
+                    hideSug()
+                } else {
+                    showSug()
+                }
+            }
+
+            function hideSug() {
+                sug.style.display = 'none'
+            }
+
+            function showSug() {
+                sug.style.display = 'block'        
+            }
+
+            function generateHints() {
+                // 生成所有的 li 子元素
+                let v = getInputValue()
+                let list = postfixList
+                let content = []
+                
+                v = HtmlUtil.htmlEncode(v) // 进行转码防止 XSS 攻击
+
+                let preStr = '',
+                    sufStr = ''
+                let index = v.indexOf('@') // 获取索引
+                if (index !== -1) {
+                    preStr = v.slice(0, index) // 用来拼接的内容
+                    sufStr = v.slice(index + 1, v.length) // 用来前缀匹配的内容
+                    for(let i = 0; i < list.length; i++){
+                        let li = document.createElement('li')
+                        if (list[i].indexOf(sufStr) !== -1) { // 匹配前缀, 才显示提示
+                            li.innerHTML = preStr.concat('@', list[i])
+                            content.push(li)
+                        }
+                    }
+                } else {
+                    preStr = v
+                }
+
+                if (content.length === 0) { // 当用户输入不满足任何前缀匹配, 或者没有输入@时，则显示全部提示
+                    for(let i = 0; i < list.length; i++){
+                        let li = document.createElement('li')
+                        li.innerHTML = preStr + '@' + list[i]
+                        content.push(li)
+                    }
+                }
+
+                return content
+            }
+
+            /* 转码部分引用自网络 */
+            let HtmlUtil = {
+                /* 用浏览器内部转换器实现html转码 */
+                htmlEncode: function (html){
+                    //1.首先动态创建一个容器标签元素，如DIV
+                    var temp = document.createElement ("div");
+                    //2.然后将要转换的字符串设置为这个元素的innerText(ie支持)或者textContent(火狐，google支持)
+                    (temp.textContent != undefined ) ? (temp.textContent = html) : (temp.innerText = html);
+                    //3.最后返回这个元素的innerHTML，即得到经过HTML编码转换的字符串了
+                    var output = temp.innerHTML;
+                    temp = null;
+                    return output;
+                },
+
+                /* 用浏览器内部转换器实现html解码 */
+                htmlDecode: function (text){
+                    //1.首先动态创建一个容器标签元素，如DIV
+                    var temp = document.createElement("div");
+                    //2.然后将要转换的字符串设置为这个元素的innerHTML(ie，火狐，google都支持)
+                    temp.innerHTML = text;
+                    //3.最后返回这个元素的innerText(ie支持)或者textContent(火狐，google支持)，即得到经过HTML解码的字符串了。
+                    var output = temp.innerText || temp.textContent;
+                    temp = null;
+                    return output;
+                }
+            };
+
+            /* 
+            *   inputDom.focus() 使输入框获得焦点
+            *   inputDom.select() 选中输入框内的所有内容
+            */
+
+        })();
+    </script>
+</body>
+
+</html>
